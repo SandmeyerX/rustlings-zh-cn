@@ -175,21 +175,6 @@ hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
 
 [[exercises]]
-name = "quiz2"
-dir = "quizzes"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
-
-[[exercises]]
-name = "quiz3"
-dir = "quizzes"
-hint = """要解决这个练习，特性（trait）知识，特别是特性边界语法知识是必不可少的。
-https://doc.rust-lang.org/stable/book/ch10-02-traits.html#using-trait-bounds-to-conditionally-implement-methods
-以下是在实现块中指定特性边界的方法:
-`impl<T: Trait1 + Trait2 + …> for Foo<T> { … }`
-可能需要`use std::fmt::Display;`。"""
-
-[[exercises]]
 name = "primitive_types1"
 dir = "04_primitive_types"
 test = false
@@ -394,6 +379,12 @@ hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
 
 [[exercises]]
+name = "quiz2"
+dir = "quizzes"
+hint = """此练习还暂无提示哦
+(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+
+[[exercises]]
 name = "hashmaps1"
 dir = "11_hashmaps"
 hint = """水果的数量至少要有5个，而且必须放入至少3种水果。"""
@@ -532,6 +523,15 @@ dir = "15_traits"
 hint = """要约束参数实现了多个特征，可以使用 `+` 语法。请尝试将 `???` 替换为 `impl [这里填入第一个特征名称] + [这里填入第二个特征名称]`。
 The Rust Book的相应章节:
 https://doc.rust-lang.org/stable/book/ch10-02-traits.html#specifying-multiple-trait-bounds-with-the--syntax"""
+
+[[exercises]]
+name = "quiz3"
+dir = "quizzes"
+hint = """要解决这个练习，特性（trait）知识，特别是特性边界语法知识是必不可少的。
+https://doc.rust-lang.org/stable/book/ch10-02-traits.html#using-trait-bounds-to-conditionally-implement-methods
+以下是在实现块中指定特性边界的方法:
+`impl<T: Trait1 + Trait2 + …> for Foo<T> { … }`
+可能需要`use std::fmt::Display;`。"""
 
 [[exercises]]
 name = "lifetimes1"

@@ -6,11 +6,21 @@ fn bigger(a: i32, b: i32) -> i32 {
     // 不要使用：
     // - 另一个函数调用
     // - 额外的变量(仅能使用`a`和`b`)
+    if a>b {
+        return a
+    }
+    else if a<b {
+        return b
+    }
+    return a;
 
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+   let a =10;
+   let b =5;
+   let c=  bigger(a,b);
+   println!("max {}",c);
 }
 
 // 现在先暂时不要关注下面的代码 :)

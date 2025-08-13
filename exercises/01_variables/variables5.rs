@@ -3,6 +3,6 @@ fn main() {
     println!("拼写number: {number}");
 
     // TODO: 通过修改下面这行代码来修复编译器错误，且不要对变量进行重命名。
-    number = 3;
+    let number = 3;
     println!("number加上2等于: {}", number + 2);
 }

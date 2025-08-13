@@ -25,14 +25,12 @@ impl Package {
         }
     }
 
-    // TODO: 给函数签名添加正确的返回类型。
-    fn is_international(&self) {
-        // TODO: 阅读使用此方法的测试，以了解在什么情况下一个包裹会被视为国际包裹。
+    fn is_international(&self) -> bool {
+        self.sender_country != self.recipient_country
     }
 
-    // TODO: 给函数签名添加正确的返回类型。
-    fn get_fees(&self, cents_per_gram: u32) {
-        // TODO: 计算包裹的费用。
+    fn get_fees(&self, cents_per_gram: u32) -> u32 {
+        self.weight_in_grams * cents_per_gram
     }
 }
 
@@ -50,7 +48,7 @@ mod tests {
         let sender_country = String::from("Spain");
         let recipient_country = String::from("Austria");
 
-        Package::new(sender_country, recipient_country, 5);
+        Package::new(sender_country, recipient_country, 15);
     }
 
     #[test]

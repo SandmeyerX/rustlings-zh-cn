@@ -12,6 +12,7 @@ mod tests {
         // 并将其赋值给一个名为 `second` 的变量。
         // let second = ???;
 
+        let second = numbers.1;
         assert_eq!(second, 2, "这不是元组中的第二个数字!");
     }
 }

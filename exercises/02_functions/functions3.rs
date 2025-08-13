@@ -6,5 +6,5 @@ fn call_me(num: u8) {
 
 fn main() {
     // TODO: 修复对此函数的调用。
-    call_me();
+    call_me(3);
 }

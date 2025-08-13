@@ -1,11 +1,13 @@
 // TODO: 修复关于调用私有函数的编译器错误。
 mod sausage_factory {
     // 不要让此模块之外的任何人看到我们的秘方(`get_secert_recipe`)!
-    fn get_secret_recipe() -> String {
-        String::from("Ginger")
+   pub fn get_secret_recipe() -> String {
+        let a = String::from("Ginger");
+        println!("{}",a);
+        a
     }
 
-    fn make_sausage() {
+    pub fn make_sausage() {
         get_secret_recipe();
         println!("sausage!");
     }

@@ -20,4 +20,5 @@ fn main() {
     println!("此练习文件位于 `exercises/00_intro/intro1.rs`， 请确认。");
     println!("可以在进度条下查看当前练习文件路径(Current exercise)。");
     println!("您可以ctrl+左键单击练习文件路径(深蓝色字样)来在编辑器中打开它们。");
+    println!("all in web3")
 }

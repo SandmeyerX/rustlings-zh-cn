@@ -1,6 +1,6 @@
 // TODO: 修改函数体，但不要修改函数签名。
 fn square(num: i32) -> i32 {
-    num * num;
+    num * num
 }
 
 fn main() {

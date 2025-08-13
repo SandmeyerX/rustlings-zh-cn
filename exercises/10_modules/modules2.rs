@@ -1,8 +1,8 @@
 // 你可以使用 `use` 和 `as` 关键字将模块路径引入作用域并为它们取个新名称(别名)。
 mod delicious_snacks {
     // TODO: 在修复以下两条 `use` 语句后将它们添加到作用域。
-    // use self::fruits::PEAR as ???;
-    // use self::veggies::CUCUMBER as ???;
+    pub use self::fruits::PEAR as fruit;
+    pub use self::veggies::CUCUMBER as veggie;
 
     mod fruits {
         pub const PEAR: &str = "Pear";

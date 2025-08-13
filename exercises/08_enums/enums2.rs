@@ -6,7 +6,11 @@ struct Point {
 
 #[derive(Debug)]
 enum Message {
-    // TODO: 定义下面所使用的不同变体(variants)。
+    Quit,
+    Move (Point),      // 结构体风格
+    Echo(String),                 // 元组风格
+    ChangeColor(i32, i32, i32),   // 元组风格
+    Resize { width: u32, height: u32 }, // 结构体风格
 }
 
 impl Message {

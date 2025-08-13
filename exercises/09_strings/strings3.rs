@@ -1,13 +1,13 @@
 fn trim_me(input: &str) -> &str {
-    // TODO: 去除字符串两端的空白字符。
+    input.trim()
 }
 
 fn compose_me(input: &str) -> String {
-    // TODO: 在字符串后面添加 " world!" ，有很多方法可以做到这一点。
+    format!("{} world!", input)
 }
 
 fn replace_me(input: &str) -> String {
-    // TODO: 替换字符串中的 "cars" 为 "balloons" 。
+    input.replace("cars", "balloons")
 }
 
 fn main() {

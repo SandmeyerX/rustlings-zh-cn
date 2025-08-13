@@ -1,9 +1,8 @@
 fn array_and_vec() -> ([i32; 4], Vec<i32>) {
-    let a = [10, 20, 30, 40]; // 数组(Array)
+    let a = [10, 20, 30, 40]; 
 
-    // TODO: 创建一个名为 `v` 的动态数组(vector)，并且包含与数组 `a` 完全相同的元素。
-    // 使用 vector 宏。
-    // let v = ???;
+    let v :Vec<i32> = a.to_vec();
+  
 
     (a, v)
 }

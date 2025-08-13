@@ -3,11 +3,11 @@ fn animal_habitat(animal: &str) -> &str {
     let identifier = if animal == "螃蟹" {
         1
     } else if animal == "地鼠" {
-        2.0
+        2
     } else if animal == "蟒蛇" {
         3
     } else {
-        "未知"
+        4
     };
 
     // 不要修改以下语句。

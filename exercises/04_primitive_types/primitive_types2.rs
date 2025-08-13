@@ -17,6 +17,7 @@ fn main() {
     // 或者一个emoji 😉
     // let your_character = '';
 
+    let your_character ='A';
     if your_character.is_alphabetic() {
         println!("是字母!");
     } else if your_character.is_numeric() {

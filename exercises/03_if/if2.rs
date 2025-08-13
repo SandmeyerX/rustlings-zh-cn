@@ -1,10 +1,11 @@
 // TODO: 修复此函数上的编译器错误。
 fn picky_eater(food: &str) -> &str {
     if food == "草莓" {
-        "美味!"
-    } else {
-        1
+        return "美味!";
+    } else if food =="土豆"{
+       return "还行吧";
     }
+   "不吃"
 }
 
 fn main() {

@@ -41,10 +41,10 @@ mod tests {
     use super::*;
 
     const RESULTS: &str = "England,France,4,2
-France,Italy,3,1
-Poland,Spain,2,0
-Germany,England,2,1
-England,Spain,1,0";
+                            France,Italy,3,1
+                            Poland,Spain,2,0
+                            Germany,England,2,1
+                            England,Spain,1,0";
 
     #[test]
     fn build_scores() {

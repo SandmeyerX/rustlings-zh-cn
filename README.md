@@ -1,6 +1,6 @@
 # Rustlings-zh-cn 🦀❤️
 
-![Tracking Status](https://img.shields.io/badge/track-当前已为最新版本-green)
+![Tracking Status](https://img.shields.io/badge/track-版本落后待更新-red)
 
 欢迎使用 Rustlings 练习题 简体中文版 😃
 这个项目包含一些小练习，旨在帮助您习惯阅读和编写惯用的 Rust 代码。

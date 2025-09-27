@@ -2,6 +2,10 @@
 
 ![Tracking Status](https://img.shields.io/badge/track-版本落后待更新-red)
 
+>[!NOTE]
+>新版 Rustlings 的 README 文件移除了以下内容，取而代之的是网站链接：[Rustlings](https://rustlings.rust-lang.org) 🦀
+>这里为直观展示安装步骤，保留了原版内容的翻译
+
 欢迎使用 Rustlings 练习题 简体中文版 😃
 这个项目包含一些小练习，旨在帮助您习惯阅读和编写惯用的 Rust 代码。
 这其中也包括阅读和参照编译器的信息！

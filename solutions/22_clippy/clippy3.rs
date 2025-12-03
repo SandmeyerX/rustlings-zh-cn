@@ -1,6 +1,5 @@
 use std::mem;
 
-#[rustfmt::skip]
 #[allow(unused_variables, unused_assignments)]
 fn main() {
     let my_option: Option<&str> = None;
@@ -11,17 +10,18 @@ fn main() {
     }
 
     // 缺少了一个逗号。
+    #[rustfmt::skip]
     let my_arr = &[
         -1, -2, -3,
         -4, -5, -6,
     ];
     println!("My array! Here it is: {my_arr:?}");
 
-    let mut my_empty_vec = vec![1, 2, 3, 4, 5];
+    let mut my_vec = vec![1, 2, 3, 4, 5];
     // `resize` 会改变一个动态数组，而不是返回一个新的。
     // `resize(0, …)` 会清空一个动态数组，所以最好使用 `clear` 来进行清空操作。
-    my_empty_vec.clear();
-    println!("This Vec is empty, see? {my_empty_vec:?}");
+    my_vec.clear();
+    println!("This Vec is empty, see? {my_vec:?}");
 
     let mut value_a = 45;
     let mut value_b = 66;

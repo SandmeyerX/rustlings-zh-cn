@@ -9,6 +9,11 @@ fn vec_loop(input: &[i32]) -> Vec<i32> {
 }
 
 fn vec_map_example(input: &[i32]) -> Vec<i32> {
+    // NOTE: 在[Commit d8f4b06]中，`vec_map_example` 和 `vec_map` 练习被官方移除，
+    //     原因：学生目前尚不具备理解迭代器相关内容的知识，这一主题将在后续专门的迭代器练习中详细讲解。
+    //     这里在中文版本中保留，可自行选择是否完成这两个练习题
+    // See: https://github.com/rust-lang/rustlings/commit/d8f4b06c91c54bccf934b84560641da3a7f202a8
+
     // 下面是一个先对元素进行映射(map)，然后收集(collect)成动态数组的例子。
     // 我们先把`input`切片里的每个元素都变成(映射)其原本的值加1 。
     //         1 -> 1 + 1 => 2
@@ -41,6 +46,7 @@ mod tests {
         assert_eq!(ans, [4, 8, 12, 16, 20]);
     }
 
+    #[ignore = "在[Commit d8f4b06]中，此练习已被移除"]
     #[test]
     fn test_vec_map_example() {
         let input = [1, 2, 3];
@@ -48,6 +54,7 @@ mod tests {
         assert_eq!(ans, [2, 3, 4]);
     }
 
+    #[ignore = "在[Commit d8f4b06]中，此练习已被移除"]
     #[test]
     fn test_vec_map() {
         let input = [2, 4, 6, 8, 10];

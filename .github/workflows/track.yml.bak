@@ -1,0 +1,83 @@
+name: Track Rustlings Commit
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # 北京时间每周四0点（UTC时间每周三16点）
+    - cron: '0 16 * * 3'
+  workflow_dispatch:
+
+jobs:
+  track-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 允许写入仓库
+    
+    steps:
+    - name: Checkout current repo
+      uses: actions/checkout@v4
+    
+    - name: Get latest commit hash from Rustlings
+      id: get_hash
+      run: |
+        # 替换为要追踪项目的Git地址
+        LATEST_HASH=$(git ls-remote https://github.com/rust-lang/rustlings.git HEAD | cut -f1)
+        echo "latest_hash=$LATEST_HASH" >> $GITHUB_OUTPUT
+    
+    - name: Compare hashes
+      id: compare
+      run: |
+        CURRENT_HASH=$(cat commit-hash.txt || echo "init")
+        echo "current_hash=$CURRENT_HASH" >> $GITHUB_OUTPUT
+        
+        if [ "$CURRENT_HASH" != "${{ steps.get_hash.outputs.latest_hash }}" ]; then
+          echo "status=NEED_UPDATE" >> $GITHUB_OUTPUT
+        else
+          echo "status=UP_TO_DATE" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Update tracking
+      if: steps.compare.outputs.status == 'NEED_UPDATE'
+      run: |
+        echo "${{ steps.get_hash.outputs.latest_hash }}" > commit-hash.txt
+        
+        # 更新README的badge（需要预先创建占位符）
+        BADGE_URL="https://img.shields.io/badge/track-版本落后待更新-red"
+        sed -i "s|https://img.shields.io/badge/track[^)]*|$BADGE_URL|" README.md
+        
+    - name: Recover track status
+      if: steps.compare.outputs.status == 'UP_TO_DATE'
+      run: |
+        # 更新README的badge（需要预先创建占位符）
+        BADGE_URL="https://img.shields.io/badge/track-当前已为最新版本-green"
+        sed -i "s|https://img.shields.io/badge/track[^)]*|$BADGE_URL|" README.md
+        
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        
+        # 检查是否有文件变更
+        if git diff --quiet; then
+          echo "No changes to commit"
+          exit 0
+        else
+          git add README.md
+          git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
+          git push
+        fi
+    
+    - name: Commit changes
+      if: steps.compare.outputs.status == 'NEED_UPDATE'
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+
+        # 检查是否有文件变更
+        if git diff --quiet; then
+          echo "No changes to commit"
+          exit 0
+        else
+          git add commit-hash.txt README.md
+          git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
+          git push
+        fi

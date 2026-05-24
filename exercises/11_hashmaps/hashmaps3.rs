@@ -7,7 +7,7 @@
 use std::collections::HashMap;
 
 // 一个用于存储球队进球详细信息的结构体。
-#[derive(Default)]
+#[derive(Default, Debug)]
 struct TeamScores {
     goals_scored: u8,
     goals_conceded: u8,
@@ -27,6 +27,17 @@ fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
 
         // TODO: 使用提取出的详细信息来填充比分表。
         // 切记，球队1的进球数将是球队2的失球数。同样，球队2的进球数将是球队1的失球数。
+        // scores.insert(team_1_name, TeamScores {goals_scored: team_1_score, goals_conceded: team_2_score}
+        
+        // 使用 entry API 处理球队 1 的数据累加
+        let team_1 = scores.entry(team_1_name).or_default();
+        team_1.goals_scored += team_1_score;
+        team_1.goals_conceded += team_2_score;
+
+        // 使用 entry API 处理球队 2 的数据累加
+        let team_2 = scores.entry(team_2_name).or_default();
+        team_2.goals_scored += team_2_score;
+        team_2.goals_conceded += team_1_score;
     }
 
     scores
@@ -59,6 +70,7 @@ England,Spain,1,0";
     fn validate_team_score_1() {
         let scores = build_scores_table(RESULTS);
         let team = scores.get("England").unwrap();
+        dbg!(&scores);
         assert_eq!(team.goals_scored, 6);
         assert_eq!(team.goals_conceded, 4);
     }

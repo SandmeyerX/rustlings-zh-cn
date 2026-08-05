@@ -8,7 +8,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        * 在提交问题之前请先阅读 [贡献指南](TODO)。
         * 请检查是否有人已经提交过类似的 [问题](https://github.com/SandmeyerX/rustlings-zh-cn/issues)。
 
   - type: checkboxes
@@ -33,12 +32,11 @@ body:
 
   - type: textarea
     attributes:
-      label: 您需要这个练习的提示?
+      label: 您需要的提示内容是什么?
       description: |
-        - 尽可能多地提供细节, 以帮助我们了解您希望看到的变化。
-        - 预期的结果或行为是什么?
+        - 描述您希望添加的提示，或现有提示存在的问题(缺失、太简略、有误等)
     validations:
-      required: false
+      required: true
 
   - type: textarea
     attributes:

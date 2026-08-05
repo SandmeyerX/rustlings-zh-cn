@@ -17,16 +17,6 @@ enum ParsePosNonzeroError {
     ParseInt(ParseIntError),
 }
 
-impl ParsePosNonzeroError {
-    fn from_creation(err: CreationError) -> Self {
-        Self::Creation(err)
-    }
-
-    fn from_parse_int(err: ParseIntError) -> Self {
-        Self::ParseInt(err)
-    }
-}
-
 // 作为一种替代解决方案，实现 `From` 特征允许使用 `?` 操作符
 // 将 `ParseIntError` 自动转换为 `ParsePosNonzeroError`，而无需调用 `map_err`。
 //
@@ -56,9 +46,9 @@ impl PositiveNonzeroInteger {
     fn parse(s: &str) -> Result<Self, ParsePosNonzeroError> {
         // 将这里修改为返回一个合适的错误，
         // 而不是在 `parse()` 返回错误时引发程序崩溃(panic)。
-        let x: i64 = s.parse().map_err(ParsePosNonzeroError::from_parse_int)?;
-        //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        Self::new(x).map_err(ParsePosNonzeroError::from_creation)
+        let x: i64 = s.parse().map_err(ParsePosNonzeroError::ParseInt)?;
+        //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        Self::new(x).map_err(ParsePosNonzeroError::Creation)
     }
 }
 

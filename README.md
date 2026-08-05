@@ -54,7 +54,7 @@ cargo install rustlings
 git clone https://github.com/SandmeyerX/rustlings-zh-cn.git
 ```
 
-或者[点击链接](https://github.com/SandmeyerX/rustlings-zh-cn/archive/refs/heads/main.zip)下载项目最新压缩包
+或者[点击链接](https://github.com/SandmeyerX/rustlings-zh-cn/releases/latest/download/release.zip)下载最新版本压缩包
 
 ### 开始练习
 练习题下载完成后，在解压后的 `rustlings-zh-cn` 目录下运行以下命令:

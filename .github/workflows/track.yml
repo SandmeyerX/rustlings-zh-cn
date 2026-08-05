@@ -48,9 +48,11 @@ jobs:
           fi
           echo "last=$LAST" >> "$GITHUB_OUTPUT"
           echo "head=$HEAD" >> "$GITHUB_OUTPUT"
+          # 生成表格格式的待同步清单（短hash链接/标题/时间），%s 中的 | 转义避免破坏表格
+          TABLE=$(git log --format="%h%x09%s%x09%ad" --date=short ${LAST}..${HEAD} -- exercises/ info.toml README.md | awk -F'\t' '{ gsub(/\|/, "\\|", $2); printf "| [%s](https://github.com/rust-lang/rustlings/commit/%s) | %s | %s |\n", $1, $1, $2, $3 }')
           {
-            echo "relevant<<EOF"
-            printf '%s\n' "$RELEVANT"
+            echo "table<<EOF"
+            printf '%s\n' "$TABLE"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
@@ -61,13 +63,13 @@ jobs:
           cat > tracking.md <<EOF
           # 翻译同步追踪
 
-          - 最后同步的上游提交：\`${{ steps.compare.outputs.last }}\`（commit-hash.txt）
-          - 上游最新提交：\`${{ steps.compare.outputs.head }}\`
+          - 最后同步的上游提交：[$(echo ${{ steps.compare.outputs.last }} | cut -c1-12)](https://github.com/rust-lang/rustlings/commit/${{ steps.compare.outputs.last }})（commit-hash.txt）
+          - 上游最新提交：[$(echo ${{ steps.compare.outputs.head }} | cut -c1-12)](https://github.com/rust-lang/rustlings/commit/${{ steps.compare.outputs.head }})
           - 待同步的翻译相关提交（${{ steps.compare.outputs.count }} 个）：
 
-          \`\`\`
-          ${{ steps.compare.outputs.relevant }}
-          \`\`\`
+          | Commit | 标题 | 时间 |
+          | --- | --- | --- |
+          ${{ steps.compare.outputs.table }}
 
           > commit-hash.txt 只在合并翻译后手动推进；本文件由工作流自动维护。
           EOF
@@ -79,8 +81,8 @@ jobs:
           cat > tracking.md <<EOF
           # 翻译同步追踪
 
-          - 最后同步的上游提交：\`${{ steps.compare.outputs.last }}\`
-          - 上游最新提交：\`${{ steps.compare.outputs.head }}\`
+          - 最后同步的上游提交：[$(echo ${{ steps.compare.outputs.last }} | cut -c1-12)](https://github.com/rust-lang/rustlings/commit/${{ steps.compare.outputs.last }})
+          - 上游最新提交：[$(echo ${{ steps.compare.outputs.head }} | cut -c1-12)](https://github.com/rust-lang/rustlings/commit/${{ steps.compare.outputs.head }})
           - 翻译状态：已同步至最新
 
           > commit-hash.txt 只在合并翻译后手动推进；本文件由工作流自动维护。

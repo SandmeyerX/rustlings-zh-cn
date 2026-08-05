@@ -1,83 +1,99 @@
-name: Track Rustlings Commit
+name: Track Rustlings Translation Changes
 
 on:
-  push:
-    branches: [ main ]
   schedule:
     # 北京时间每周四0点（UTC时间每周三16点）
     - cron: '0 16 * * 3'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   track-commit:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # 允许写入仓库
-    
     steps:
-    - name: Checkout current repo
-      uses: actions/checkout@v4
-    
-    - name: Get latest commit hash from Rustlings
-      id: get_hash
-      run: |
-        # 替换为要追踪项目的Git地址
-        LATEST_HASH=$(git ls-remote https://github.com/rust-lang/rustlings.git HEAD | cut -f1)
-        echo "latest_hash=$LATEST_HASH" >> $GITHUB_OUTPUT
-    
-    - name: Compare hashes
-      id: compare
-      run: |
-        CURRENT_HASH=$(cat commit-hash.txt || echo "init")
-        echo "current_hash=$CURRENT_HASH" >> $GITHUB_OUTPUT
-        
-        if [ "$CURRENT_HASH" != "${{ steps.get_hash.outputs.latest_hash }}" ]; then
-          echo "status=NEED_UPDATE" >> $GITHUB_OUTPUT
-        else
-          echo "status=UP_TO_DATE" >> $GITHUB_OUTPUT
-        fi
-    
-    - name: Update tracking
-      if: steps.compare.outputs.status == 'NEED_UPDATE'
-      run: |
-        echo "${{ steps.get_hash.outputs.latest_hash }}" > commit-hash.txt
-        
-        # 更新README的badge（需要预先创建占位符）
-        BADGE_URL="https://img.shields.io/badge/track-版本落后待更新-red"
-        sed -i "s|https://img.shields.io/badge/track[^)]*|$BADGE_URL|" README.md
-        
-    - name: Recover track status
-      if: steps.compare.outputs.status == 'UP_TO_DATE'
-      run: |
-        # 更新README的badge（需要预先创建占位符）
-        BADGE_URL="https://img.shields.io/badge/track-当前已为最新版本-green"
-        sed -i "s|https://img.shields.io/badge/track[^)]*|$BADGE_URL|" README.md
-        
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-        
-        # 检查是否有文件变更
-        if git diff --quiet; then
-          echo "No changes to commit"
-          exit 0
-        else
-          git add README.md
-          git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
-          git push
-        fi
-    
-    - name: Commit changes
-      if: steps.compare.outputs.status == 'NEED_UPDATE'
-      run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
+      - name: Checkout
+        uses: actions/checkout@v4
 
-        # 检查是否有文件变更
-        if git diff --quiet; then
-          echo "No changes to commit"
-          exit 0
-        else
-          git add commit-hash.txt README.md
-          git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
+      - name: Fetch upstream
+        run: |
+          if ! git remote get-url upstream >/dev/null 2>&1; then
+            git remote add upstream https://github.com/rust-lang/rustlings.git
+          fi
+          git fetch --no-tags --filter=blob:none upstream main
+
+      - name: Compare translation-relevant commits
+        id: compare
+        run: |
+          if [ -s commit-hash.txt ]; then
+            LAST=$(cat commit-hash.txt)
+          else
+            LAST=$(git rev-list --max-parents=0 upstream/main | tail -n 1)
+          fi
+          # 容错：commit-hash.txt 中的提交不在上游历史时，回退到上游首个提交
+          if ! git cat-file -e "${LAST}^{commit}" 2>/dev/null; then
+            LAST=$(git rev-list --max-parents=0 upstream/main | tail -n 1)
+          fi
+          HEAD=$(git rev-parse upstream/main)
+          # 只统计翻译相关路径（exercises/、info.toml、README.md）；
+          # src/、Cargo.toml 等源码与依赖层面的改动不会触发状态更新
+          RELEVANT=$(git log --oneline ${LAST}..${HEAD} -- exercises/ info.toml README.md)
+          if [ -n "$RELEVANT" ]; then
+            echo "status=NEED_UPDATE" >> "$GITHUB_OUTPUT"
+            echo "count=$(printf '%s\n' "$RELEVANT" | grep -c .)" >> "$GITHUB_OUTPUT"
+          else
+            echo "status=UP_TO_DATE" >> "$GITHUB_OUTPUT"
+            echo "count=0" >> "$GITHUB_OUTPUT"
+          fi
+          echo "last=$LAST" >> "$GITHUB_OUTPUT"
+          echo "head=$HEAD" >> "$GITHUB_OUTPUT"
+          {
+            echo "relevant<<EOF"
+            printf '%s\n' "$RELEVANT"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Mark outdated
+        if: steps.compare.outputs.status == 'NEED_UPDATE'
+        run: |
+          sed -i 's|https://img.shields.io/badge/track[^)]*|https://img.shields.io/badge/track-版本落后待更新-red|' README.md
+          cat > tracking.md <<EOF
+          # 翻译同步追踪
+
+          - 最后同步的上游提交：\`${{ steps.compare.outputs.last }}\`（commit-hash.txt）
+          - 上游最新提交：\`${{ steps.compare.outputs.head }}\`
+          - 待同步的翻译相关提交（${{ steps.compare.outputs.count }} 个）：
+
+          \`\`\`
+          ${{ steps.compare.outputs.relevant }}
+          \`\`\`
+
+          > commit-hash.txt 只在合并翻译后手动推进；本文件由工作流自动维护。
+          EOF
+
+      - name: Mark up-to-date
+        if: steps.compare.outputs.status == 'UP_TO_DATE'
+        run: |
+          sed -i 's|https://img.shields.io/badge/track[^)]*|https://img.shields.io/badge/track-当前已为最新版本-green|' README.md
+          cat > tracking.md <<EOF
+          # 翻译同步追踪
+
+          - 最后同步的上游提交：\`${{ steps.compare.outputs.last }}\`
+          - 上游最新提交：\`${{ steps.compare.outputs.head }}\`
+          - 翻译状态：已同步至最新
+
+          > commit-hash.txt 只在合并翻译后手动推进；本文件由工作流自动维护。
+          EOF
+
+      - name: Commit badge & tracking
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add README.md tracking.md
+          if [ "${{ steps.compare.outputs.status }}" = "NEED_UPDATE" ]; then
+            git commit -m "track: 上游翻译内容更新，等待同步（${{ steps.compare.outputs.count }} 个提交）" || echo "no changes"
+          else
+            git commit -m "track: 已同步至 ${{ steps.compare.outputs.head }}" || echo "no changes"
+          fi
           git push
-        fi

@@ -8,7 +8,7 @@
 // 确定的情况如下:
 // - 输入将会是一个由长度为2的元组构成的动态数组，
 //   其中第一个元素是字符串，第二个元素是命令。
-// - 输出元素将会是一个字符串数组。 
+// - 输出元素将会是一个字符串数组。
 
 enum Command {
     Uppercase,
@@ -61,8 +61,8 @@ mod tests {
     // 引入(Import) `transformer`。
     use super::my_module::transformer;
 
-    use super::my_module::transformer_iter;
     use super::Command;
+    use super::my_module::transformer_iter;
 
     #[test]
     fn it_works() {

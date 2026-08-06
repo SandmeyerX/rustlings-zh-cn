@@ -27,7 +27,7 @@ fn vec_map_example(input: &[i32]) -> Vec<i32> {
 fn vec_map(input: &[i32]) -> Vec<i32> {
     // 我们之后会更深入地探讨迭代器(iterators)，不过就目前而言，这些就足够了!
     // 进阶提示：这个方法效率更高，因为它会自动预先分配足够的容量(capacity)。
-    // 在 `vec_loop` 方法中，可以通过使用 `Vec::with_capacity(input.len())` 来替代 `Vec::new()` 手动完成这一操作。 
+    // 在 `vec_loop` 方法中，可以通过使用 `Vec::with_capacity(input.len())` 来替代 `Vec::new()` 手动完成这一操作。
     input.iter().map(|element| 2 * element).collect()
 }
 

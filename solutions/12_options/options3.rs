@@ -15,7 +15,7 @@ fn main() {
         _ => panic!("No match!"),
     }
 
-    // 解决方案二: 
+    // 解决方案二:
     // 通过在 `optional_point` 前添加 `&` 来对引用(`&Option`)进行模式匹配。
     match &optional_point {
         Some(p) => println!("Coordinates are {},{}", p.x, p.y),

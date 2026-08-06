@@ -51,13 +51,12 @@ impl TryFrom<&[i16]> for Color {
     type Error = IntoColorError;
 
     fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {
-        // 检查长度。
-        if slice.len() != 3 {
-            return Err(IntoColorError::BadLen);
+        if let &[red, green, blue] = slice {
+            // 复用(reuse)对元组的实现。
+            Self::try_from((red, green, blue))
+        } else {
+            Err(IntoColorError::BadLen)
         }
-
-        // 复用(reuse)对元组的实现。
-        Self::try_from((slice[0], slice[1], slice[2]))
     }
 }
 

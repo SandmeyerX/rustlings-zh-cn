@@ -5,4 +5,6 @@ Rust有两种字符串类型：一种是字符串切片(slice)(`&str`)，另一�
 
 ## 对应知识
 
-- [Strings](https://doc.rust-lang.org/book/ch08-02-strings.html)
+- [Strings（Rust 官方书籍）](https://doc.rust-lang.org/book/ch08-02-strings.html)
+- [`str` 方法](https://doc.rust-lang.org/std/primitive.str.html)
+- [`String` 方法](https://doc.rust-lang.org/std/string/struct.String.html)

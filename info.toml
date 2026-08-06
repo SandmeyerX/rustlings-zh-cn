@@ -621,26 +621,26 @@ hint = """`std::iter::Iterator` trait的文档中记载了许多在此处有用�
 如果想要进一步挑战，参考`Iterator`的文档，寻找一个比使用`fold`更能使代码简洁的其他方法吧！"""
 
 [[exercises]]
-name = "1_box1"
+name = "smart_pointers1"
 dir = "19_smart_pointers"
 hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
 
 [[exercises]]
-name = "2_rc1"
+name = "smart_pointers2"
 dir = "19_smart_pointers"
 hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
 
 [[exercises]]
-name = "3_arc1"
+name = "smart_pointers3"
 dir = "19_smart_pointers"
 test = false
 hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
 
 [[exercises]]
-name = "4_cow1"
+name = "smart_pointers4"
 dir = "19_smart_pointers"
 hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
@@ -719,19 +719,19 @@ hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
 
 [[exercises]]
-name = "1_using_as"
+name = "conversions1"
 dir = "23_conversions"
 hint = """请使用`as`运算符将`average`函数最后一行的操作数之一更改为期望的返回值类型。"""
 
 [[exercises]]
-name = "2_from_into"
+name = "conversions2"
 dir = "23_conversions"
 hint = """请按照在`From`之前刚刚实现的步骤来进行操作。"""
 
 [[exercises]]
-name = "3_from_str"
+name = "conversions3"
 dir = "23_conversions"
-hint = """在`FromStr`的实现中，需要指定`Person`对象并返回`Ok`，如果字符串不符合要求则指定相应错误并返回`Err`。这与 `2_from_into` 的练习大致相同，不过这里是返回错误而不是返回默认值。
+hint = """在`FromStr`的实现中，需要指定`Person`对象并返回`Ok`，如果字符串不符合要求则指定相应错误并返回`Err`。这与 `conversions2` 的练习大致相同，不过这里是返回错误而不是返回默认值。
 另一个提示:
 可以使用 `Result` 的 `map_err` 方法以及在闭包中使用它来包装从 `parse::<u8>` 产生的错误。
 还有一个提示:
@@ -739,12 +739,12 @@ hint = """在`FromStr`的实现中，需要指定`Person`对象并返回`Ok`，�
 https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html """
 
 [[exercises]]
-name = "4_try_from_into"
+name = "conversions4"
 dir = "23_conversions"
 hint = """标准库中是否存在既能进行`TryFrom`实现所需的整数转换，又能进行输入范围检查的东西呢?
 挑战: 能否针对很多整数类型通用地实现 `TryFrom` 呢? """
 
 [[exercises]]
-name = "5_as_ref_mut"
+name = "conversions5"
 dir = "23_conversions"
 hint = """让我们将`AsRef<str>`或`AsMut<u32>`作为绑定到函数的特性来添加吧。"""

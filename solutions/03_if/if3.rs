@@ -2,6 +2,7 @@ fn animal_habitat(animal: &str) -> &str {
     let identifier = if animal == "螃蟹" {
         1
     } else if animal == "地鼠" {
+        // 整数，这样每个分支都有相同的类型。
         2
     } else if animal == "蟒蛇" {
         3

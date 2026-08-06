@@ -36,9 +36,10 @@ jobs:
             LAST=$(git rev-list --max-parents=0 upstream/main | tail -n 1)
           fi
           HEAD=$(git rev-parse upstream/main)
-          # 只统计翻译相关路径（exercises/、info.toml、README.md）；
-          # src/、Cargo.toml 等源码与依赖层面的改动不会触发状态更新
-          RELEVANT=$(git log --oneline ${LAST}..${HEAD} -- exercises/ info.toml README.md)
+          # 只统计翻译相关路径（exercises/、solutions/、info.toml、dev/Cargo.toml、README.md）：
+          # 练习与题解是翻译对象；dev/Cargo.toml 对应本仓库根 Cargo.toml（lints/profile 配置）
+          # src/ 等其他源码与依赖层面的改动不会触发状态更新
+          RELEVANT=$(git log --oneline ${LAST}..${HEAD} -- exercises/ solutions/ info.toml dev/Cargo.toml README.md)
           if [ -n "$RELEVANT" ]; then
             echo "status=NEED_UPDATE" >> "$GITHUB_OUTPUT"
             echo "count=$(printf '%s\n' "$RELEVANT" | grep -c .)" >> "$GITHUB_OUTPUT"
@@ -49,7 +50,7 @@ jobs:
           echo "last=$LAST" >> "$GITHUB_OUTPUT"
           echo "head=$HEAD" >> "$GITHUB_OUTPUT"
           # 生成表格格式的待同步清单（短hash链接/标题/时间），%s 中的 | 转义避免破坏表格
-          TABLE=$(git log --format="%h%x09%s%x09%ad" --date=short ${LAST}..${HEAD} -- exercises/ info.toml README.md | awk -F'\t' '{ gsub(/\|/, "\\|", $2); printf "| [%s](https://github.com/rust-lang/rustlings/commit/%s) | %s | %s |\n", $1, $1, $2, $3 }')
+          TABLE=$(git log --format="%h%x09%s%x09%ad" --date=short ${LAST}..${HEAD} -- exercises/ solutions/ info.toml dev/Cargo.toml README.md | awk -F'\t' '{ gsub(/\|/, "\\|", $2); printf "| [%s](https://github.com/rust-lang/rustlings/commit/%s) | %s | %s |\n", $1, $1, $2, $3 }')
           {
             echo "table<<EOF"
             printf '%s\n' "$TABLE"

@@ -20,6 +20,7 @@ jobs:
           components: rustfmt
 
       - name: Check formatting of solution files
+        shell: bash
         run: rustfmt --check --edition 2024 solutions/*/*.rs
 
   dev-check:
@@ -58,12 +59,12 @@ jobs:
 
       - name: Build rustlings binary
         working-directory: upstream
-        run: cargo build --bin rustlings
+        run: cargo build --release --bin rustlings
 
       - name: Run dev check
         shell: bash
         run: |
-          BIN="upstream/target/debug/rustlings"
+          BIN="upstream/target/release/rustlings"
           if [ -f "$BIN.exe" ]; then
             BIN="$BIN.exe"
           fi

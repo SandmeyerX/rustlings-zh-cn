@@ -15,13 +15,7 @@ impl Fireworks {
     }
 
     fn start(self) -> String {
-        if self.rockets < 5 {
-            String::from("small")
-        } else if self.rockets < 20 {
-            String::from("medium")
-        } else {
-            String::from("big")
-        }
+        "🚀".repeat(self.rockets)
     }
 }
 
@@ -35,18 +29,17 @@ mod tests {
 
     #[test]
     fn start_some_fireworks() {
+        let f = Fireworks::new();
+        assert_eq!(f.start(), "");
+
         let mut f = Fireworks::new();
         f.add_rockets(3);
-        assert_eq!(f.start(), "small");
+        assert_eq!(f.start(), "🚀🚀🚀");
 
         let mut f = Fireworks::new();
-        f.add_rockets(15);
-        assert_eq!(f.start(), "medium");
-
-        let mut f = Fireworks::new();
-        f.add_rockets(100);
+        f.add_rockets(7);
         // 在最后一个测试中我们不使用方法语法，以确保 `start`
         // 函数取得烟花的所有权。
-        assert_eq!(Fireworks::start(f), "big");
+        assert_eq!(Fireworks::start(f), "🚀🚀🚀🚀🚀🚀🚀");
     }
 }

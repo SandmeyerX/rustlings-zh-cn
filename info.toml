@@ -294,9 +294,10 @@ https://doc.rust-lang.org/stable/book/ch05-01-defining-structs.html#creating-ins
 [[exercises]]
 name = "structs3"
 dir = "07_structs"
-hint = """在`is_international`函数中，可能需要确认包裹的目的地、出发地或者运输过程中涉及的国家等信息来判断是否为国际包裹，经停地看起来确实可能相关。
-在`get_fees`函数中，需要额外的参数，而`Package`结构体中可能需要包含与包裹重量、尺寸、运输类型（是否加急等）、目的地等相关的字段，这些信息会影响费用的计算。
-如果想详细了解方法的实现，可以查看The Rust Book:
+hint = """方法和关联函数都声明在 `impl MyType {}` 代码块中。
+方法拥有 `self`、`&self` 或 `&mut self` 参数，其中 `self` 隐式具有 impl 代码块的类型。关联函数则没有 `self` 参数。
+
+如果想了解更多关于方法实现的内容，请查看The Rust Book:
 https://doc.rust-lang.org/stable/book/ch05-03-method-syntax.html 。"""
 
 [[exercises]]

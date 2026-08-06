@@ -1,32 +1,27 @@
+#![deny(clippy::use_self)] // 练习使用 `Self` 类型
+
 #[derive(Debug)]
-struct Package {
-    sender_country: String,
-    recipient_country: String,
-    weight_in_grams: u32,
+struct Fireworks {
+    rockets: usize,
 }
 
-impl Package {
-    fn new(sender_country: String, recipient_country: String, weight_in_grams: u32) -> Self {
-        if weight_in_grams < 10 {
-            // 在Rust中不应该这样处理错误，不过我们稍后会学习错误处理相关的内容。
-            panic!("无法运输重量低于10克的包裹");
-        }
-
-        Self {
-            sender_country,
-            recipient_country,
-            weight_in_grams,
-        }
+impl Fireworks {
+    fn new() -> Self {
+        Self { rockets: 0 }
     }
 
-    fn is_international(&self) -> bool {
-        //                     ^^^^^^^ 添加此处内容
-        self.sender_country != self.recipient_country
+    fn add_rockets(&mut self, rockets: usize) {
+        self.rockets += rockets
     }
 
-    fn get_fees(&self, cents_per_gram: u32) -> u32 {
-        //                                  ^^^^^^ 添加此处内容
-        self.weight_in_grams * cents_per_gram
+    fn start(self) -> String {
+        if self.rockets < 5 {
+            String::from("small")
+        } else if self.rockets < 20 {
+            String::from("medium")
+        } else {
+            String::from("big")
+        }
     }
 }
 
@@ -39,44 +34,19 @@ mod tests {
     use super::*;
 
     #[test]
-    #[should_panic]
-    fn fail_creating_weightless_package() {
-        let sender_country = String::from("Spain");
-        let recipient_country = String::from("Austria");
+    fn start_some_fireworks() {
+        let mut f = Fireworks::new();
+        f.add_rockets(3);
+        assert_eq!(f.start(), "small");
 
-        Package::new(sender_country, recipient_country, 5);
-    }
+        let mut f = Fireworks::new();
+        f.add_rockets(15);
+        assert_eq!(f.start(), "medium");
 
-    #[test]
-    fn create_international_package() {
-        let sender_country = String::from("Spain");
-        let recipient_country = String::from("Russia");
-
-        let package = Package::new(sender_country, recipient_country, 1200);
-
-        assert!(package.is_international());
-    }
-
-    #[test]
-    fn create_local_package() {
-        let sender_country = String::from("Canada");
-        let recipient_country = sender_country.clone();
-
-        let package = Package::new(sender_country, recipient_country, 1200);
-
-        assert!(!package.is_international());
-    }
-
-    #[test]
-    fn calculate_transport_fees() {
-        let sender_country = String::from("Spain");
-        let recipient_country = String::from("Spain");
-
-        let cents_per_gram = 3;
-
-        let package = Package::new(sender_country, recipient_country, 1500);
-
-        assert_eq!(package.get_fees(cents_per_gram), 4500);
-        assert_eq!(package.get_fees(cents_per_gram * 2), 9000);
+        let mut f = Fireworks::new();
+        f.add_rockets(100);
+        // 在最后一个测试中我们不使用方法语法，以确保 `start`
+        // 函数取得烟花的所有权。
+        assert_eq!(Fireworks::start(f), "big");
     }
 }

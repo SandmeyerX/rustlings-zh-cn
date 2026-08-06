@@ -726,7 +726,8 @@ hint = """请使用`as`运算符将`average`函数最后一行的操作数之一
 [[exercises]]
 name = "conversions2"
 dir = "23_conversions"
-hint = """请按照在`From`之前刚刚实现的步骤来进行操作。"""
+hint = """实现 From<FairyCredit> for GnomeCoin。查看 `From` 的文档了解其必需条目:
+https://doc.rust-lang.org/std/convert/trait.From.html"""
 
 [[exercises]]
 name = "conversions3"

@@ -2,48 +2,52 @@
 // 你可以在文档中阅读更多关于它的内容:
 // https://doc.rust-lang.org/std/convert/trait.From.html
 //
-// 仙女 Frank 想从地精 Grace 那里购买一些松露，Grace 是一位举世闻名的巧克力大师。
-// 松露以 GnomeCoin 计价，但 Frank 只有 FairyCredit。请通过提供 `From` 实现来
-// 帮助 Frank 将他的 FairyCredit 转换为 GnomeCoin。按照当前汇率，1 个 FairyCredit
-// 价值 100 个 GnomeCoin。
+// 使用独立的类型来表示不同的度量单位是一种常见的做法。
+// 它可以避免意外混淆不同度量单位的数值。
 
-#[derive(Debug)]
-struct FairyCredit(u32);
+struct Celsius(f64);
 
-#[derive(Debug, PartialEq)]
-struct GnomeCoin(u64);
+struct Fahrenheit(f64);
 
-impl From<FairyCredit> for GnomeCoin {
-    // TODO: 实现 From<FairyCredit> for GnomeCoin
+impl From<Celsius> for Fahrenheit {
+    // TODO: 将摄氏度转换为华氏度。不用担心浮点
+    // 精度。公式是: F = C * 1.8 + 32
 }
 
-// 注意，我们不应该提供反向转换：从 GnomeCoin 转换为 FairyCredit。
-// 因为小于 100 的 GnomeCoin 无法表示为 FairyCredit，这会使转换有损。
-// `From` 特征只适用于无失败且无损的转换。
+impl From<Fahrenheit> for Celsius {
+    // TODO: 将华氏度转换为摄氏度。
+}
 
 fn main() {
-    // 使用 `from` 函数。
-    let g1 = GnomeCoin::from(FairyCredit(12));
-    println!("{g1:?}");
-
-    // 由于 `GnomeCoin` 实现了 `From`，我们也可以使用 `Into`。
-    let g2: GnomeCoin = FairyCredit(9).into();
-    println!("{g2:?}");
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    const CASES: [(f64, f64); 6] = [
+        (-50.0, -58.0),
+        (0.0, 32.0),
+        (20.0, 68.0),
+        (100.0, 212.0),
+        (400.0, 752.0),
+        (1000.0, 1832.0),
+    ];
+
     #[test]
-    fn test_from() {
-        let g = GnomeCoin::from(FairyCredit(12));
-        assert_eq!(g, GnomeCoin(1200));
+    fn celsius_to_fahrenheit() {
+        for (celsius, fahrenheit) in CASES {
+            let Fahrenheit(actual) = Celsius(celsius).into();
+            assert_eq!(actual.round(), fahrenheit);
+        }
     }
 
     #[test]
-    fn test_into() {
-        let g: GnomeCoin = FairyCredit(9).into();
-        assert_eq!(g, GnomeCoin(900));
+    fn fahrenheit_to_celsius() {
+        for (celsius, fahrenheit) in CASES {
+            let Celsius(actual) = Fahrenheit(fahrenheit).into();
+            assert_eq!(actual.round(), celsius);
+        }
     }
 }

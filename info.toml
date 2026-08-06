@@ -726,8 +726,13 @@ hint = """请使用`as`运算符将`average`函数最后一行的操作数之一
 [[exercises]]
 name = "conversions2"
 dir = "23_conversions"
-hint = """实现 From<FairyCredit> for GnomeCoin。查看 `From` 的文档了解其必需条目:
-https://doc.rust-lang.org/std/convert/trait.From.html"""
+hint = """从华氏度转换为摄氏度的公式是: C = (F - 32) / 1.8
+这个公式可以从第一个公式推导出来:
+
+             F = C * 1.8 + 32   // 现在两边同时减去 32
+        F - 32 = C * 1.8        // 然后两边同时除以 1.8
+(F - 32) / 1.8 = C
+"""
 
 [[exercises]]
 name = "conversions3"

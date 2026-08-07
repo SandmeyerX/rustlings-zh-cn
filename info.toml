@@ -63,33 +63,33 @@ hint = """提供打印功能的宏是 `printline!` 吗？看看编译器提示�
 name = "variables1"
 dir = "01_variables"
 test = false
-hint = """声明变量并赋值的操作中，是不是少了什么用来绑定值的关键字"""
+hint = """声明变量并赋值的操作中，是不是少了什么用来绑定值的关键字。"""
 
 [[exercises]]
 name = "variables2"
 dir = "01_variables"
 test = false
-hint = """编译器的消息表明，Rust无法从代码中推断出变量`x`所具有的类型。
-要是在`main`函数的第一行添加类型注解会怎样呢？
-如果给`x`赋予一个值又会如何呢？
+hint = """编译器的消息表明，Rust 无法从代码中推断出变量 `x` 所具有的类型。
+要是在 `main` 函数的第一行添加类型注解会怎样呢？
+如果给 `x` 赋予一个值又会如何呢？
 要是这两件事都做了，又会变成什么样呢？
-另外，`x`应该是什么类型呢？
-要是`x`和`10`是相同类型会怎样？如果是不同类型又会怎样呢？ """
+另外，`x` 应该是什么类型呢？
+要是 `x` 和 `10` 是相同类型会怎样？如果是不同类型又会怎样呢？"""
 
 [[exercises]]
 name = "variables3"
 dir = "01_variables"
 test = false
 hint = """你正在试图使用已创建但未赋值的变量？
-这类错误在编程语言中是经常出现的(值得庆幸的是，Rust编译器发现了这个错误)。 """
+这类错误在编程语言中是经常出现的（值得庆幸的是，Rust 编译器发现了这个错误）。"""
 
 [[exercises]]
 name = "variables4"
 dir = "01_variables"
 test = false
-hint = """在Rust中，变量默认是不可变(immutable)的。
+hint = """在 Rust 中，变量默认是不可变（immutable）的。
 但这里我们需要给变量赋另外一个值，即改变这个变量。
-所以在声明变量时要在变量名前加上什么关键字使其可变(mutable)呢？ """
+所以在声明变量时要在变量名前加上什么关键字使其可变（mutable）呢？"""
 
 [[exercises]]
 name = "variables5"
@@ -98,20 +98,22 @@ test = false
 hint = """在 `variables4` 中，我们学习了如何使用特定关键字来修改变量可变性。
 不过，在这个练习里，那种方法没什么用处。
 这是因为这次我们想要给现有的变量名赋予不同的类型。而且有时候可能也会希望重新使用相同的变量名（比如仅仅稍微改变一下变量里面内容的类型等情况）。
-为了应对这样的状况，在 Rust 中有 `变量遮蔽(Shadowing)` 这种方法。
-变量遮蔽在 The Rust Book 中有详细讲解:
-https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing"""
+为了应对这样的状况，在 Rust 中有 `变量遮蔽（Shadowing）` 这种方法。
+变量遮蔽在《Rust 程序设计语言》简体中文版中有详细讲解：
+https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html#遮蔽
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing）"""
 
 [[exercises]]
 # Exercise name which is the exercise file name without the `.rs` extension.
 name = "variables6"
 dir = "01_variables"
 test = false
-hint = """到目前为止，我们已经了解了变量和可变性相关的知识，不过Rust中还存在一种重要的类型叫做常量。
+hint = """到目前为止，我们已经了解了变量和可变性相关的知识，不过 Rust 中还存在一种重要的类型叫做常量。
 常量始终是不可变的，并且使用 `const` 关键字进行声明。
 值得注意的是，常量的类型在代码中总是需要明确地进行声明。
-关于变量和常量的区别，在 The Rust Book 中有详细讲解：
-https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#constants"""
+关于变量和常量的区别，在《Rust 程序设计语言》简体中文版中有详细讲解：
+https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html#常量
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#constants）"""
 
 [[exercises]]
 name = "functions1"

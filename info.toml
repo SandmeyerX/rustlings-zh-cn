@@ -50,14 +50,14 @@ test = false
 # strict_clippy = false
 
 # A multi-line hint to be shown to users on request.
-hint = """在终端键入`n`并回车进入下一个练习。"""
+hint = """在终端键入 `n` 并回车进入下一个练习。"""
 skip_check_unsolved = true
 
 [[exercises]]
 name = "intro2"
 dir = "00_intro"
 test = false
-hint = """提供打印功能的宏是`printline!`吗？看看编译器提示了什么"""
+hint = """提供打印功能的宏是 `printline!` 吗？看看编译器提示了什么。"""
 
 [[exercises]]
 name = "variables1"

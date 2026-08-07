@@ -50,7 +50,8 @@ test = false
 # strict_clippy = false
 
 # A multi-line hint to be shown to users on request.
-hint = """在终端键入 `n` 并回车进入下一个练习。"""
+hint = """在终端键入 `n` 并回车进入下一个练习。
+键入 `n` 后你可能还需要按回车。"""
 skip_check_unsolved = true
 
 [[exercises]]
@@ -63,7 +64,7 @@ hint = """提供打印功能的宏是 `printline!` 吗？看看编译器提示�
 name = "variables1"
 dir = "01_variables"
 test = false
-hint = """声明变量并赋值的操作中，是不是少了什么用来绑定值的关键字。"""
+hint = """`main` 函数中的声明是不是缺少了 Rust 中创建新变量绑定所需的关键字？"""
 
 [[exercises]]
 name = "variables2"
@@ -80,8 +81,11 @@ hint = """编译器的消息表明，Rust 无法从代码中推断出变量 `x` 
 name = "variables3"
 dir = "01_variables"
 test = false
-hint = """你正在试图使用已创建但未赋值的变量？
-这类错误在编程语言中是经常出现的（值得庆幸的是，Rust 编译器发现了这个错误）。"""
+hint = """在这个练习中，我们在 `main` 函数中创建了一个变量绑定，并在下一行就试图使用它，但还没有给它赋任何值。
+
+我们无法打印不存在的东西，试着给 `x` 赋一个值吧！
+
+这类错误在任何编程语言中都容易犯，并可能导致 bug（值得庆幸的是，Rust 编译器已经帮我们发现了这个错误）。"""
 
 [[exercises]]
 name = "variables4"
@@ -101,7 +105,9 @@ hint = """在 `variables4` 中，我们学习了如何使用特定关键字来�
 为了应对这样的状况，在 Rust 中有 `变量遮蔽（Shadowing）` 这种方法。
 变量遮蔽在《Rust 程序设计语言》简体中文版中有详细讲解：
 https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html#遮蔽
-（社区中文翻译，原文：https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing）"""
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing）
+
+之后，请用这个技巧尝试解决这个练习。"""
 
 [[exercises]]
 # Exercise name which is the exercise file name without the `.rs` extension.
@@ -109,7 +115,7 @@ name = "variables6"
 dir = "01_variables"
 test = false
 hint = """到目前为止，我们已经了解了变量和可变性相关的知识，不过 Rust 中还存在一种重要的类型叫做常量。
-常量始终是不可变的，并且使用 `const` 关键字进行声明。
+常量始终是不可变的，并且使用 `const` 关键字（而不是 `let`）进行声明。
 值得注意的是，常量的类型在代码中总是需要明确地进行声明。
 关于变量和常量的区别，在《Rust 程序设计语言》简体中文版中有详细讲解：
 https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html#常量

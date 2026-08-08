@@ -7,12 +7,12 @@ fn animal_habitat(animal: &str) -> &str {
     } else if animal == "蟒蛇" {
         3
     } else {
-        // 任何不使用的标识符。
+        // 任何未使用的标识符。
         4
     };
 
-    // 在Rust中，你会使用枚举(enum)来替代这样的标识符。
-    // 不过我们还没学习到枚举呢。
+    // 在 Rust 中，你会使用枚举（enum）来替代这样的标识符。
+    // 不过我们还没学到枚举呢。
     if identifier == 1 {
         "海滩"
     } else if identifier == 2 {
@@ -25,7 +25,7 @@ fn animal_habitat(animal: &str) -> &str {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

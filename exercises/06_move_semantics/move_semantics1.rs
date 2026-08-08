@@ -1,4 +1,4 @@
-// TODO: 修改这个函数中的编译器错误。
+// TODO: 修复此函数中的编译器错误。
 fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
     let vec = vec;
 
@@ -8,7 +8,7 @@ fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

@@ -317,39 +317,47 @@ hint = """在第一个函数中，我们创建了一个空的动态数组，并�
 [[exercises]]
 name = "move_semantics1"
 dir = "06_move_semantics"
-hint = """向`vec`推送元素意味着要改变它，但默认所有变量是不可变的，所以要想解决这个问题， 我们应该怎么声明`vec`呢？"""
+hint = """你在向动态数组 push 元素的那一行，会看到“cannot borrow `vec` as mutable, as it is not declared as mutable”（`vec` 未声明为可变，因此不能作为可变借用）这样的错误，对吧？
+
+修复方法是添加一个关键字，而且不是添加在 push 元素的那一行（也就是报错的那一行）。
+
+试试在调用 `fill_vec()` 之后继续访问变量 `vec0`，看看会发生什么！"""
 
 [[exercises]]
 name = "move_semantics2"
 dir = "06_move_semantics"
-hint = """在初次运行这个练习的时候，你有没有注意到有`对已移动的值进行借用`这样的错误呢？
-在Rust中，当参数被传递给函数，并且其值没有被显式返回时，原来的变量就无法再被使用了。
-也就是说，当把`vec0`传递给`fill_vec`时，所有权会转移到`vec1`那里，所以就没办法再访问`vec0`了。
-如果想要解决这个问题的话，就需要创建`vec0`的克隆，然后将这个克隆传递给`fill_vec`。 """
+hint = """第一次运行这个练习时，你会看到一个“borrow of moved value”（借用了已移动的值）之类的错误。
+
+在 Rust 中，当参数被传递给函数，并且没有被显式返回时，原来的变量就无法再使用了，我们称这个过程为“移动”（moving）变量。
+当把 `vec0` 传给 `fill_vec` 时，它被“移动”到 `vec1`，意味着我们无法再访问 `vec0`。
+
+你也可以创建一份与 `vec0` 中数据相同的独立副本，然后把它传给 `fill_vec`。这在 Rust 中叫做克隆（cloning）。"""
 
 [[exercises]]
 name = "move_semantics3"
 dir = "06_move_semantics"
-hint = """与之前的练习的区别在于，`fill_vec`函数开头处原有的`let mut vec = vec`这部分内容消失了。
-取而代之的是，在已有数组进行初始定义的时候添加`mut`关键字吧。"""
+hint = """本练习与前几个练习的区别在于，`fn fill_vec` 开头原本的 `let mut vec = vec;` 这一行不见了。与其把那一行加回来，不如在某个地方添加 `mut`，把现有的绑定（binding）从不可变改为可变绑定 :)"""
 
 [[exercises]]
 name = "move_semantics4"
 dir = "06_move_semantics"
-hint = """请仔细考虑可变引用的作用域范围。当获取可变引用时修改`x`的值会有什么作用呢？
-关于可变变量的引用，请参考The Rust Book:
-https://doc.rust-lang.org/stable/book/ch04-02-references-and-borrowing.html """
+hint = """仔细想想每个可变引用（mutable reference）的作用域范围。在取得可变引用之后立即更新 `x` 的值，会有帮助吗？
+
+关于“可变引用”的更多内容，请参考书中的“引用与借用”（References and Borrowing）一节：
+https://kaisery.github.io/trpl-zh-cn/ch04-02-references-and-borrowing.html#可变引用
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#mutable-references）"""
 
 [[exercises]]
 name = "move_semantics5"
 dir = "06_move_semantics"
 test = false
-hint = """要找到答案，可参考The Rust Book中的“引用与借用(References and Borrowing)”章节:
-https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html
+hint = """要找到答案，可以查阅书中的“引用与借用”（References and Borrowing）一节：
+https://kaisery.github.io/trpl-zh-cn/ch04-02-references-and-borrowing.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html）
 
-第一个问题在于 `get_char` 获取了字符串的所有权。这导致 `data` 被移动(moved)，从而无法在 `string_uppercase` 中使用。因为 `data` 会先被移动到 `get_char` 中，意味着 `string_uppercase` 无法再操作该数据。
+第一个问题在于 `get_char` 获取了字符串的所有权，于是 `data` 被移动，无法再用于 `string_uppercase`。因为 `data` 会先被移动到 `get_char`，这意味着 `string_uppercase` 无法再操作这些数据。
 
-修复此问题后，还需要调整一下 `string_uppercase` 的函数签名。"""
+修复这个问题后，还需要调整 `string_uppercase` 的函数签名。"""
 
 [[exercises]]
 name = "structs1"

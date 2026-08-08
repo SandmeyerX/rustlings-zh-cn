@@ -160,15 +160,15 @@ https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html#常�
 name = "functions1"
 dir = "02_functions"
 test = false
-hint = """在`main`函数内调用了`call_me`函数，然而该函数在代码中并不存在。
-而且代码推测这个函数不需要参数，也没有返回值，这和`main`函数挺相似的呢。"""
+hint = """在 `main` 函数内调用了 `call_me` 函数，然而该函数在代码中并不存在。
+它预期这个函数不需要参数，也没有返回值，和 `main` 函数倒是挺像的。"""
 
 [[exercises]]
 name = "functions2"
 dir = "02_functions"
 test = false
-hint = """在Rust中，函数的签名(用来描述函数输入输出的部分)里类型声明是必需的。
-对于`call_me`函数来说，它缺少了什么呢？"""
+hint = """Rust 要求函数签名的所有部分都必须有类型注解，
+但 `call_me` 缺少了 `num` 的类型注解。"""
 
 [[exercises]]
 name = "functions3"
@@ -180,16 +180,22 @@ hint = """函数的声明本身没有问题，不过函数的调用方式似乎�
 name = "functions4"
 dir = "02_functions"
 test = false
-hint = """错误消息指出在`sale_price`函数中 “->” 之后没有写明返回值的类型。参考一下`is_even`函数吧。"""
+hint = """错误消息指向 `sale_price` 函数，并指出 `->` 之后需要有一个类型。
+这里就是函数的返回类型所在的位置。参考一下 `is_even` 函数吧！"""
 
 [[exercises]]
 name = "functions5"
 dir = "02_functions"
 test = false
-hint = """Rust区分表达式和语句。
-表达式返回与操作对象对应的值，语句仅返回`()`空空如也。
-`square`函数应该返回`i32`，但是却返回了`()`。
-仔细看看`square`函数的代码吧。"""
+hint = """这是一个非常常见的错误，只需删除一个字符即可修复。
+它发生的原因是 Rust 区分表达式（expression）和语句（statement）：
+表达式会基于自身操作数（operand）运算得出返回值，而语句只会返回 `()` 类型，其行为类似于 C/C++ 中的 `void`。
+
+我们希望 `square` 函数返回 `i32` 类型的值，但它却返回了 `()` 类型。
+
+有两种解决方案：
+1. 在 `num * num;` 前添加 `return` 关键字
+2. 删除 `num * num` 后的分号 `;`"""
 
 [[exercises]]
 name = "if1"

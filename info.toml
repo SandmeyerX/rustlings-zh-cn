@@ -235,46 +235,63 @@ hint = """此练习还暂无提示哦
 name = "primitive_types1"
 dir = "04_primitive_types"
 test = false
-hint = """将运算符`!`置于布尔值之前，可以去否布尔值。
-例如: `!true == false`
-这也可以用值为false的布尔型变量。"""
+hint = """在布尔值前面使用运算符 `!` 可以对其取反。
+例如：`!true == false`
+这对布尔变量同样适用。"""
 
 [[exercises]]
 name = "primitive_types2"
 dir = "04_primitive_types"
 test = false
-hint = """在 Rust 中，字符类型 `char` 需注意以下要点:  
-1. 单引号定义: 用单引号包裹单个字符，如 `'A'` 或 `'😻'`，与双引号的字符串(`"abc"`)严格区分；  
-2. Unicode 支持: 每个 `char` 是 4 字节的 Unicode 标量值，可表示中文、表情符号等任意 Unicode 字符；  
-3. 类型转换: 仅 `u8` 可通过 `as` 直接转 `char`，其他整型需用 `std::char::from_u32` 等方法检查有效性；  
-4. 与字符串区别: 字符串(`String`/`&str`)存储 UTF-8 编码的字节序列，而 `char` 直接存储 Unicode 码位。"""
+hint = """（译者自制提示：上游未提供此练习的提示，以下内容为译者补充。）
+
+在 Rust 中，字符类型 `char` 需注意以下要点：
+1. 单引号定义：用单引号包裹单个字符，如 `'A'` 或 `'😻'`，与双引号的字符串（`"abc"`）严格区分；
+2. Unicode 支持：每个 `char` 是 4 字节的 Unicode 标量值，可表示中文、表情符号等任意 Unicode 字符；
+3. 类型转换：仅 `u8` 可通过 `as` 直接转 `char`，其他整型需用 `std::char::from_u32` 等方法检查有效性；
+4. 与字符串区别：字符串（`String`/`&str`）存储 UTF-8 编码的字节序列，而 `char` 直接存储 Unicode 码位。"""
 
 [[exercises]]
 name = "primitive_types3"
 dir = "04_primitive_types"
 test = false
-hint = """在Rust中，有一种以特定大小初始化数组的便捷方法:
-`let nums = [6; 99999];`
-这是一个长度为99999的数组，每个元素都是6。
-什么？你说你这样也可以: `let nums = [6, 6, 6, ..., 6, 6];`
-你是个狠人...
+hint = """有一种初始化指定大小数组的快捷写法，不需要手动输入 100 个元素（当然，如果你想的话也可以！）。
+
+例如，可以这样写：
+```
+let array = ["Are we there yet?"; 100];
+```
 """
 
 [[exercises]]
 name = "primitive_types4"
 dir = "04_primitive_types"
-hint = """要让 `nice_slice` 满足测试，可使用数组切片语法，从数组 `a` 中提取从索引 1 开始到索引 4(不包含)的元素，语法格式为 `&数组名[起始索引..结束索引]`。"""
+hint = """看看书中“认识所有权 → Slice 类型 → 其他类型的 slice”一节：
+https://kaisery.github.io/trpl-zh-cn/ch04-03-slices.html#其他类型的-slice
+使用你希望包含在切片中的元素的起始索引和结束索引（再加一）。
+
+如果你好奇为什么 `assert_eq!` 的第一个参数没有加引用符号 `&`，而第二个参数却是引用，也能正常编译，
+可以看看死灵书（nomicon，另有中文译名“Rust 秘典”）中关于类型强制转换（coercions）的章节：
+https://nomicon.purewhite.io/coercions.html
+（社区中文翻译，原文：https://doc.rust-lang.org/nomicon/coercions.html）"""
 
 [[exercises]]
 name = "primitive_types5"
 dir = "04_primitive_types"
 test = false
-hint = """使用元组解构语法，通过 `let` 语句将元组 `cat` 的元素分别绑定到变量 `name` 和 `age` 上，格式为 `let (变量名1, 变量名2) = 元组名;`。"""
+hint = """看看书中“数据类型 → 元组类型”一节：
+https://kaisery.github.io/trpl-zh-cn/ch03-02-data-types.html#元组类型
+重点学习关于解构（destructuring）的部分（该节倒数第二个示例）。
+
+你需要编写匹配模式，把 `name` 和 `age` 绑定到元组中相应的部分。"""
 
 [[exercises]]
 name = "primitive_types6"
 dir = "04_primitive_types"
-hint = """元组元素索引从 0 开始，用 `.索引` 访问，把 `numbers` 的第二个元素(索引为 1)赋值给 `second`，即 `let second = numbers.索引;`。"""
+hint = """虽然你可以用 `let` 解构元组完成任务，但试试改用索引访问吧，
+具体写法参考书中“数据类型 → 元组类型”一节的最后一段示例：
+https://kaisery.github.io/trpl-zh-cn/ch03-02-data-types.html#元组类型
+至此，恭喜你又掌握了一种操作元组的方法！"""
 
 [[exercises]]
 name = "vecs1"

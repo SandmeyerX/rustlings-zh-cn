@@ -362,28 +362,36 @@ https://kaisery.github.io/trpl-zh-cn/ch04-02-references-and-borrowing.html
 [[exercises]]
 name = "structs1"
 dir = "07_structs"
-hint = """Rust中有三种结构体，每种结构体都用于将相关数据组合在一起。
-常规结构体存储`数据`以及`数据对应的名称`，这些被称为`字段`(fields)。
-元组结构体就像是有名字的元组，每个字段没有独特的名称。
-单元样结构体没有字段，作为泛型使用时较为方便。
-在这个练习题中，需要实现所有类型的结构体，请参考  The Rust Book
-https://doc.rust-lang.org/stable/book/ch05-01-defining-structs.html """
+hint = """Rust 的结构体不止一种，准确来说共有三种变体，它们的作用都是将相关数据封装在一起。
+
+第一种是常规结构体：它是一组命名字段（field）的集合，用来存放关联数据。
+
+元组结构体（tuple struct）本质上是带类型名称的元组。
+
+最后是单元结构体（unit struct），它没有任何字段，在泛型场景中很有用。
+
+在本练习中，你需要完成并实现每一种结构体。想了解更多，请查看《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch05-01-defining-structs.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch05-01-defining-structs.html）"""
 
 [[exercises]]
 name = "structs2"
 dir = "07_structs"
-hint = """创建结构体的实例很简单，只需给定每个字段即可。
-此外，在进行实例化时还有一些快捷的方式，详情请查看The Rust Book:
-https://doc.rust-lang.org/stable/book/ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax """
+hint = """创建结构体的实例很简单，只需为它的各个字段赋值即可。
+不过，在实例化结构体时，有几种便捷语法可以简化代码。想了解更多，请查看《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch05-01-defining-structs.html#使用结构体更新语法创建实例
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax）"""
 
 [[exercises]]
 name = "structs3"
 dir = "07_structs"
-hint = """方法和关联函数都声明在 `impl MyType {}` 代码块中。
-方法拥有 `self`、`&self` 或 `&mut self` 参数，其中 `self` 隐式具有 impl 代码块的类型。关联函数则没有 `self` 参数。
+hint = """方法（method）和关联函数都声明在 `impl MyType {}` 代码块中。
+方法接收 `self`、`&self` 或 `&mut self` 参数，其中 `self` 的类型会隐式匹配为该实现块所属的类型。
+关联函数则没有 `self` 参数。
 
-如果想了解更多关于方法实现的内容，请查看The Rust Book:
-https://doc.rust-lang.org/stable/book/ch05-03-method-syntax.html 。"""
+如果想知道更多关于方法实现的内容，请查看《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch05-03-method-syntax.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch05-03-method-syntax.html）"""
 
 [[exercises]]
 name = "enums1"

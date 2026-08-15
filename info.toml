@@ -397,26 +397,36 @@ https://kaisery.github.io/trpl-zh-cn/ch05-03-method-syntax.html
 name = "enums1"
 dir = "08_enums"
 test = false
-hint = """为`Message`枚举创建下面所有使用到的变体"""
+hint = """（译者自制提示：上游未提供此练习的提示，以下内容为译者补充。）
+
+为 `Message` 枚举定义下面使用到的所有变体。"""
 
 [[exercises]]
 name = "enums2"
 dir = "08_enums"
 test = false
-hint = """在 Rust 中，你可以创建包含不同类型变体的枚举，这些变体可以支持多种数据结构形式，例如:
-​匿名结构体: `Move { x: i32, y: i32 }`
-​具名结构体: 通过`struct Point`定义后绑定到`Move(Point)`变体
-​单字符串: `Echo(String)`
-​元组: `ChangeColor(u8, u8, u8)`
-​无数据变体: `Quit`
-...
-这种设计允许枚举灵活地封装不同场景下的数据形态，并通过模式匹配统一处理。"""
+hint = """枚举的变体可以用三种不同的形式来定义：
+类结构体（struct-like）、类元组（tuple-like）和类单元（unit-like）。
+
+下面是一个同时使用了上述三种形式的枚举定义示例：
+
+```
+enum EnumUsingAllVariantForms {
+    StructLike { named_field: bool },
+    TupleLike(bool),
+    UnitLike,
+}
+```
+"""
 
 [[exercises]]
 name = "enums3"
 dir = "08_enums"
-hint = """第一步，先定义枚举类型，确保不会出现错误。
-接下来，在 `process()` 函数中创建 `match` 表达式。请注意，为了获取枚举中的值，需要使用 `match` 表达式进行解构。"""
+hint = """首先，定义枚举类型，让代码能够无误地编译。
+
+接下来，在 `process()` 函数中创建 `match` 表达式。
+
+请注意，你需要在 `match` 表达式中对某些消息变体（message variants）进行解构，以获取变体中的值。"""
 
 [[exercises]]
 name = "strings1"

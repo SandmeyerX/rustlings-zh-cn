@@ -6,8 +6,8 @@ fn main() {
     let word = String::from("green");
 
     if is_a_color_word(&word) {
-        //             ^ 添加它是为了得到 `&String` 类型，
-        //               编译器会自动将其强制转换为 &str 类型。
+        //             ^ 加这个 `&` 是为了得到 `&String` 类型，
+        //               编译器会自动将其强制转换为 `&str` 类型。
         println!("那是一个表示颜色的词!");
     } else {
         println!("那不是一个表示颜色的词。");

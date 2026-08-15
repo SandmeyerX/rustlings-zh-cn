@@ -17,8 +17,8 @@ fn main() {
 
     string(format!("Interpolation {}", "Station"));
 
-    // 警告: 这是字节索引(byte indexing)，而非字符索引(character indexing)。
-    // 字符索引可以通过使用 `s.chars().nth(INDEX)` 来完成。
+    // 警告：这是字节索引（byte indexing），而非字符索引（character indexing）。
+    // 字符索引可以通过 `s.chars().nth(INDEX)` 完成。
     string_slice(&String::from("abc")[0..1]);
 
     string_slice("  hello there ".trim());

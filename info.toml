@@ -432,35 +432,47 @@ hint = """首先，定义枚举类型，让代码能够无误地编译。
 name = "strings1"
 dir = "09_strings"
 test = false
-hint = """`current_favorite_color` 函数返回的是具有 `static`(静态)生命周期的切片。
-由于字符串数据是嵌入在代码中的，所以只要代码在运行，该数据就会一直存在。
-虽然，字符串切片与 `String` 类型是不同的，但可以通过使用 `From` 进行类型转换。 """
+hint = """`current_favorite_color` 函数目前返回的是具有 `'static`（静态）生命周期的字符串切片。
+我们之所以知道这一点，是因为该字符串的数据就存储在代码本身中——它并非来自文件、用户输入或其它程序——所以它会一直存在，和程序存活的时间一样长。
+
+但它仍然是一个字符串切片。有两种从字符串切片创建 `String` 的方法：一种在《Rust 程序设计语言》的 Strings 章节中有介绍：
+https://kaisery.github.io/trpl-zh-cn/ch08-02-strings.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch08-02-strings.html）
+另一种方法则使用 `From` trait。"""
 
 [[exercises]]
 name = "strings2"
 dir = "09_strings"
 test = false
-hint = """只需将绑定到 `word` 的值从 `String` 改为字符串切片(string slice)，就能轻松修复这个问题。
-不过有一种方法: 在 `if` 语句中添加一个字符，即可将 String 强制转换为字符串切片。
+hint = """是的，只需把绑定到 `word` 的值从 `String` 改为字符串切片（string slice），就能很容易地修复这个问题，对吧？
+不过有一种方法：只要在 `if` 语句中添加一个字符，编译器就会把 `String` 强制转换为字符串切片。
 
-小提示: 如果你对这类引用转换的原理感兴趣，可以参考The Rust Book智能指针章节的以下部分(含解引用强制多态机制详解):
-https://doc.rust-lang.org/book/ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods"""
+小提示：如果你对这类引用转换的原理感兴趣，可以跳到《Rust 程序设计语言》智能指针章节，阅读以下部分：
+https://kaisery.github.io/trpl-zh-cn/ch15-02-deref.html#在函数和方法中使用-deref-强制转换
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods）"""
 
 [[exercises]]
 name = "strings3"
 dir = "09_strings"
-hint = """字符串的标准库中有一些很方便的功能:
+hint = """标准库中有很多好用的字符串函数，让我们试着用一用其中的一些：
 https://doc.rust-lang.org/std/string/struct.String.html#method.trim
-`compose_me`: 可以使用`format!`宏，或者将字符串切片转换为拥有所有权的字符串，关于可以自由扩展的`replace_me`，请参考`replace`方法:
+
+对于 `compose_me`：你可以使用 `format!` 宏，或者把字符串切片转换为拥有所有权的字符串，之后就可以随意扩容（追加内容）。
+
+对于 `replace_me`，可以看看 `replace` 方法：
 https://doc.rust-lang.org/std/string/struct.String.html#method.replace"""
 
 [[exercises]]
 name = "strings4"
 dir = "09_strings"
 test = false
-hint = """请将 `main` 函数中的 `placeholder` 替换为 `string` 或 `string_slice` 函数。
-例如，`placeholder("blue");` 应该替换为 `string_slice("blue");`。
-因为 `"blue"` 部分是 `&str` 类型。"""
+hint = """请将 `main` 函数中的 `placeholder` 替换为 `string` 或 `string_slice`。
+
+例如：
+`placeholder("blue");`
+应该替换为
+`string_slice("blue");`
+因为 `"blue"` 是 `&str` 类型，而不是 `String`。"""
 
 [[exercises]]
 name = "modules1"

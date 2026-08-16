@@ -478,21 +478,25 @@ hint = """请将 `main` 函数中的 `placeholder` 替换为 `string` 或 `strin
 name = "modules1"
 dir = "10_modules"
 test = false
-hint = """在Rust中，默认情况下大多数东西都是私有访问的。不过，可以用`pub`关键字使其可公开使用 """
+hint = """在 Rust 中，默认情况下一切都是私有的。不过，有一个关键字可以让某些东西变为公有！"""
 
 [[exercises]]
 name = "modules2"
 dir = "10_modules"
 test = false
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """`delicious_snacks` 模块试图呈现一个与其内部结构（`fruits` 和 `veggies` 模块及其相关常量）不同的外部接口。
+补全 `use` 语句以匹配 `main` 中的用法，并找出这两个常量都缺少的一个关键字。
+
+更多内容请参阅《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch07-04-bringing-paths-into-scope-with-the-use-keyword.html#使用-pub-use-重导出名称
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch07-04-bringing-paths-into-scope-with-the-use-keyword.html#re-exporting-names-with-pub-use）"""
 
 [[exercises]]
 name = "modules3"
 dir = "10_modules"
 test = false
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """`UNIX_EPOCH` 和 `SystemTime` 声明在 `std::time` 模块中。
+为这两者添加一条 `use` 语句，把它们引入作用域。你可以使用嵌套路径（nested paths），只用一行就把它们引入。"""
 
 [[exercises]]
 name = "hashmaps1"

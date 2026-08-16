@@ -501,27 +501,29 @@ hint = """`UNIX_EPOCH` 和 `SystemTime` 声明在 `std::time` 模块中。
 [[exercises]]
 name = "hashmaps1"
 dir = "11_hashmaps"
-hint = """水果的数量至少要有5个，而且必须放入至少3种水果。"""
+hint = """水果的数量至少要有 5 个，而且必须放入至少 3 种不同类型的水果。"""
 
 [[exercises]]
 name = "hashmaps2"
 dir = "11_hashmaps"
-hint = """我们使用哈希表的`entry`和`or_insert`方法。
-有关详细信息，请参阅The Rust Book:
-https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#adding-a-key-and-value-only-if-a-key-isnt-present"""
+hint = """使用 `HashMap` 的 `entry()` 和 `or_insert()` 方法来实现。
+
+更多内容请参阅《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch08-03-hash-maps.html#只在键尚不存在时插入键值对
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch08-03-hash-maps.html#only-inserting-a-value-if-the-key-has-no-value）"""
 
 [[exercises]]
 name = "hashmaps3"
 dir = "11_hashmaps"
-hint = """提示1:
-使用哈希表的`entry`和`or_insert`(或 `or_insert_with`)方法，在球队不存在于表格中时插入`TeamScores`的默认值。
-更多详细信息，请参考The Rust Book:
-https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#adding-a-key-and-value-only-if-a-key-isnt-present
+hint = """
+提示 1：使用 `HashMap` 的 `entry()` 和 `or_default()` 方法，
+       如果球队尚不存在于表格中，就插入 `TeamScores` 的默认值。
 
-提示2:
-确保当给定的键已经存在时，能够根据已设置的值进行更新。
-更多详细信息，请参考The Rust Book:
-https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#updating-a-value-based-on-the-old-value"""
+提示 2：如果给定键已有条目，`entry()` 返回的值可以基于现有值进行更新。
+
+更多内容请参阅《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch08-03-hash-maps.html#根据旧值更新一个值
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch08-03-hash-maps.html#updating-a-value-based-on-the-old-value）"""
 
 [[exercises]]
 name = "quiz2"

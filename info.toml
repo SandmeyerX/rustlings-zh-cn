@@ -534,24 +534,32 @@ hint = """此练习还暂无提示哦
 [[exercises]]
 name = "options1"
 dir = "12_options"
-hint = """Option类型可以拥有Some值及其内部的值，也可以是内部值为None的类型。有多种获取内部值的方法，可以使用`unwrap`或者模式匹配。
-使用unwrap虽然简单，但是如果出现问题就会导致程序崩溃(panic)，那么为了不让程序强制退出应该怎么做呢?"""
+hint = """`Option` 要么是带有内部值的 `Some`，要么是不带内部值的 `None`。
+
+有多种方法可以取出内部值，可以使用 `unwrap`，也可以使用模式匹配。
+使用 `unwrap` 最简单，但如何安全地使用它，避免程序日后突然崩溃（panic）呢？"""
 
 [[exercises]]
 name = "options2"
 dir = "12_options"
-hint = """请参考以下示例:
-- https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html 
-- https://doc.rust-lang.org/rust-by-example/flow_control/while_let.html 
-切记，Option类型可以嵌套在`if let`和`while let`语句中。
-例如，“if let Some(Some(x)) = y”，也可以参考Option::flatten。"""
+hint = """请参考以下示例：
+- https://rustwiki.org/zh-CN/rust-by-example/flow_control/if_let.html （社区中文翻译，原文：https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html）
+- https://rustwiki.org/zh-CN/rust-by-example/flow_control/while_let.html （社区中文翻译，原文：https://doc.rust-lang.org/rust-by-example/flow_control/while_let.html）
+
+切记，`Option` 可以嵌套在 `if-let` 和 `while-let` 语句中。
+
+例如：`if let Some(Some(x)) = y`
+
+也可以参考 `Option::flatten`。"""
 
 [[exercises]]
 name = "options3"
 dir = "12_options"
 test = false
-hint = """编译器提示发生了部分所有权的转移，让我们看看编译器的错误提示吧。
-按照编译器的指示进行修正后，请阅读相关文档:
+hint = """编译器提示在 `match` 语句中发生了部分移动（partial move）。
+如何避免这种情况？编译器会给出所需的修改方案。
+
+按照编译器提示进行修正后，请阅读相关文档：
 https://doc.rust-lang.org/std/keyword.ref.html"""
 
 [[exercises]]

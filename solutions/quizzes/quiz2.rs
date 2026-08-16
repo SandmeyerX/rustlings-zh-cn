@@ -5,10 +5,10 @@
 // - 去除字符串两端的空白字符
 // - 将字符串按指定的次数追加“bar”
 
-// 确定的情况如下:
-// - 输入将会是一个由长度为2的元组构成的动态数组，
+// 确定的情况如下：
+// - 输入将会是一个由长度为 2 的元组构成的动态数组，
 //   其中第一个元素是字符串，第二个元素是命令。
-// - 输出元素将会是一个字符串数组。
+// - 输出将是一个由字符串组成的动态数组。
 
 enum Command {
     Uppercase,
@@ -39,7 +39,7 @@ mod my_module {
     }
 
     // 等同于 `transform`，但为了便于对比，这里使用迭代器而非循环。
-    // 别担心，我们稍后会练习迭代器相关内容的哦。
+    // 别担心，我们稍后会练习迭代器的哦。
     pub fn transformer_iter(input: Vec<(String, Command)>) -> Vec<String> {
         input
             .into_iter()
@@ -53,12 +53,12 @@ mod my_module {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
 mod tests {
-    // 引入(Import) `transformer`。
+    // 引入 `transformer`。
     use super::my_module::transformer;
 
     use super::Command;

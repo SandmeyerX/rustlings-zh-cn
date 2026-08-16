@@ -528,8 +528,7 @@ https://kaisery.github.io/trpl-zh-cn/ch08-03-hash-maps.html#根据旧值更新�
 [[exercises]]
 name = "quiz2"
 dir = "quizzes"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """`+` 运算符可以将 `String` 与 `&str` 拼接。"""
 
 [[exercises]]
 name = "options1"

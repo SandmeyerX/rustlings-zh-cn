@@ -4,7 +4,7 @@
 // 并且需要能够打印这两种类型的成绩单！
 //
 // 请在 `ReportCard` 结构体以及其实现块(impl block)中进行必要的代码修改，
-// 使得除了支持数字成绩的成绩单之外，还能支持字母成绩的成绩单。 
+// 使得除了支持数字成绩的成绩单之外，还能支持字母成绩的成绩单。
 
 use std::fmt::Display;
 
@@ -23,7 +23,7 @@ impl<T: Display> ReportCard<T> {
     fn print(&self) -> String {
         format!(
             "{} ({}) - 取得的成绩为 {}",
-            &self.student_name, &self.student_age, &self.grade,
+            self.student_name, self.student_age, self.grade,
         )
     }
 }
@@ -43,10 +43,7 @@ mod tests {
             student_name: "柳如烟".to_string(),
             student_age: 12,
         };
-        assert_eq!(
-            report_card.print(),
-            "柳如烟 (12) - 取得的成绩为 2.1",
-        );
+        assert_eq!(report_card.print(), "柳如烟 (12) - 取得的成绩为 2.1",);
     }
 
     #[test]
@@ -56,9 +53,6 @@ mod tests {
             student_name: "菠萝吹雪".to_string(),
             student_age: 11,
         };
-        assert_eq!(
-            report_card.print(),
-            "菠萝吹雪 (11) - 取得的成绩为 A+",
-        );
+        assert_eq!(report_card.print(), "菠萝吹雪 (11) - 取得的成绩为 A+",);
     }
 }

@@ -1,4 +1,4 @@
-// TODO: 修复此函数上的编译器错误。
+// TODO: 修复这个函数中的编译器错误。
 fn picky_eater(food: &str) -> &str {
     if food == "草莓" {
         "美味!"
@@ -8,10 +8,10 @@ fn picky_eater(food: &str) -> &str {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
-// TODO: 阅读这些测试用例，试着理解它们在干什么。
+// TODO: 阅读测试用例，试着理解预期的行为。
 // 在不修改测试用例的情况下，使所有测试通过。
 #[cfg(test)]
 mod tests {
@@ -19,7 +19,7 @@ mod tests {
 
     #[test]
     fn yummy_food() {
-        // 这说明在调用`picky_eater`函数时，传入参数`草莓`应该返回`美味!`。
+        // 这说明在调用 `picky_eater` 函数时，传入参数 `草莓` 应该返回 `美味!`。
         assert_eq!(picky_eater("草莓"), "美味!");
     }
 

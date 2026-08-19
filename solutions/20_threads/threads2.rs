@@ -1,5 +1,5 @@
 // 在上一个练习的基础上，我们希望所有线程都完成它们的工作。
-// 但这次，被生成的线程需要负责更新一个共享的值: `JobStatus.jobs_done`。 
+// 但这次，被生成的线程需要负责更新一个共享的值: `JobStatus.jobs_done`。
 
 use std::{
     sync::{Arc, Mutex},

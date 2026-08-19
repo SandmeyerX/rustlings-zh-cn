@@ -22,7 +22,7 @@ fn create_order_template() -> Order {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -36,7 +36,7 @@ mod tests {
         let your_order = Order {
             name: String::from("Hacker in Rust"),
             count: 1,
-            // 结构体更新语法(Struct update syntax)
+            // 结构体更新语法（struct update syntax）
             ..order_template
         };
 

@@ -3,9 +3,9 @@ fn trim_me(input: &str) -> &str {
 }
 
 fn compose_me(input: &str) -> String {
-    // 宏 `format!` 有着与 `println!` 相同的语法，
-    // 但它会返回一个字符串，而不是将其输出到终端上。
-    // 等同于 `input.to_string() + " world!"` 。
+    // `format!` 宏的语法与 `println!` 相同，不过它会返回一个字符串，
+    // 而不是将其打印到终端上。
+    // 等同于 `input.to_string() + " world!"`。
     format!("{input} world!")
 }
 
@@ -14,7 +14,7 @@ fn replace_me(input: &str) -> String {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

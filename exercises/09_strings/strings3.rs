@@ -3,15 +3,15 @@ fn trim_me(input: &str) -> &str {
 }
 
 fn compose_me(input: &str) -> String {
-    // TODO: 在字符串后面添加 " world!" ，有很多方法可以做到这一点。
+    // TODO: 在字符串后面添加 " world!"，有很多方法可以做到这一点。
 }
 
 fn replace_me(input: &str) -> String {
-    // TODO: 替换字符串中的 "cars" 为 "balloons" 。
+    // TODO: 替换字符串中的 "cars" 为 "balloons"。
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

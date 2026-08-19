@@ -3,3 +3,5 @@ Cargo.lock
 target/
 .vscode/
 !.vscode/extensions.json
+
+exercises/*/REPORT.md

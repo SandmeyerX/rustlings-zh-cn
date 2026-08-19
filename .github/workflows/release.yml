@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build release notes
+        id: notes
+        run: |
+          UPSTREAM=$(cut -c1-12 commit-hash.txt)
+          {
+            echo "# Rustlings-zh-cn ${{ github.ref_name }}"
+            echo ""
+            echo "- 基于上游 rustlings commit: \`$UPSTREAM\`"
+            echo "- 下载 zip 解压后，在目录内运行 \`rustlings\` 开始练习"
+            echo ""
+            echo "## 距上个标签的翻译相关变更"
+            echo ""
+          } > release-notes.md
+          PREV=$(git describe --tags --abbrev=0 "${{ github.ref_name }}~1" 2>/dev/null || true)
+          if [ -n "$PREV" ]; then
+            git log --oneline "${PREV}..${{ github.ref_name }}" -- exercises/ info.toml README.md | head -80 >> release-notes.md
+          fi
+
+      - name: Create archives
+        run: |
+          git archive --format=zip -o release.zip "${{ github.ref_name }}"
+          git archive --format=tar.gz -o release.tar.gz "${{ github.ref_name }}"
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" release.zip release.tar.gz \
+            --title "Rustlings-zh-cn ${{ github.ref_name }}" \
+            --notes-file release-notes.md

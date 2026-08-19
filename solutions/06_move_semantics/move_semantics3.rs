@@ -1,12 +1,12 @@
 fn fill_vec(mut vec: Vec<i32>) -> Vec<i32> {
-    //      ^^^ 添加 `mut` 关键字，说明 参数 `vec` 是可变的。
+    //      ^^^ 添加 `mut` 关键字，使参数 `vec` 可变。
     vec.push(88);
 
     vec
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

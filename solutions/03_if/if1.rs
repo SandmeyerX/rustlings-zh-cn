@@ -1,16 +1,12 @@
 fn bigger(a: i32, b: i32) -> i32 {
-    if a > b {
-        a
-    } else {
-        b
-    }
+    if a > b { a } else { b }
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
-// 现在先暂时不要关注下面的代码 :)
+// 暂时不用关注下面的代码 :)
 #[cfg(test)]
 mod tests {
     use super::*;

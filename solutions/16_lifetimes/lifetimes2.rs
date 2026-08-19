@@ -1,15 +1,11 @@
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-    if x.len() > y.len() {
-        x
-    } else {
-        y
-    }
+    if x.len() > y.len() { x } else { y }
 }
 
 fn main() {
     let string1 = String::from("long string is long");
 
-    // 解决方案一: 
+    // 解决方案一:
     // 你可以将 `strings2` 移出内部代码块，这样它就不会在打印语句之前被释放(drop)。
     let string2 = String::from("xyz");
     let result;

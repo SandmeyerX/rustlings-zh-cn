@@ -1,7 +1,7 @@
 #![allow(clippy::needless_late_init)]
 
 fn main() {
-    // 在Rust中，读取未初始化的变量是不被允许的！
+    // 在 Rust 中，读取未初始化的变量是不被允许的！
     // 因此，我们首先需要给变量赋一个值。
     let x: i32 = 42;
 

@@ -8,7 +8,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        * 在提交问题之前请先阅读 [贡献指南](TODO)。
         * 请检查是否有人已经提交过类似的 [问题](https://github.com/SandmeyerX/rustlings-zh-cn/issues)。
 
   - type: checkboxes

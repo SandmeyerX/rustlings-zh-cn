@@ -9,9 +9,9 @@ fn main() {
 mod tests {
     #[test]
     fn iterators() {
-        let my_fav_fruits = ["banana", "custard apple", "avocado", "peach", "raspberry"];
+        let my_fav_fruits = &["banana", "custard apple", "avocado", "peach", "raspberry"];
 
-        // 创建一个针对于数组 `my_fav_fruits` 的迭代器。
+        // 创建一个针对于切片 `my_fav_fruits` 的迭代器。
         let mut fav_fruits_iterator = my_fav_fruits.iter();
 
         assert_eq!(fav_fruits_iterator.next(), Some(&"banana"));

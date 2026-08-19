@@ -1,7 +1,7 @@
 // `AsRef` 和 `AsMut` 允许进行低成本的引用到引用的转换。
-// 分别在 https://doc.rust-lang.org/std/convert/trait.AsRef.html 
-// 和 https://doc.rust-lang.org/std/convert/trait.AsMut.html 
-// 阅读更多关于它们的内容。 
+// 分别在 https://doc.rust-lang.org/std/convert/trait.AsRef.html
+// 和 https://doc.rust-lang.org/std/convert/trait.AsMut.html
+// 阅读更多关于它们的内容。
 
 // 获取给定参数中的字节数(bytes, 而非字符数)
 // (`.len()` 方法返回的是字符串中的字节数)。

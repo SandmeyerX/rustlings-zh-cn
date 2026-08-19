@@ -1,5 +1,5 @@
 mod delicious_snacks {
-    // 添加了 `pub` ，并且在 `as` 关键字后使用了符合预期的别名。
+    // 添加了 `pub`，并且在 `as` 关键字后使用了符合预期的别名。
     pub use self::fruits::PEAR as fruit;
     pub use self::veggies::CUCUMBER as veggie;
 

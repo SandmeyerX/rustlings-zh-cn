@@ -47,7 +47,7 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
 }
 
 // 等同于 `count_collection_iterator` 和 `count_iterator`，
-// 其迭代方式就好像集合是单个容器，而非容器的容器(更准确地说，是单个迭代器，而非迭代器的迭代器)。 
+// 其迭代方式就好像集合是单个容器，而非容器的容器(更准确地说，是单个迭代器，而非迭代器的迭代器)。
 fn count_collection_iterator_flat(
     collection: &[HashMap<String, Progress>],
     value: Progress,

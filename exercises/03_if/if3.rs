@@ -10,7 +10,7 @@ fn animal_habitat(animal: &str) -> &str {
         "未知"
     };
 
-    // 不要修改以下语句。
+    // 不要修改以下表达式！
     if identifier == 1 {
         "海滩"
     } else if identifier == 2 {
@@ -23,10 +23,10 @@ fn animal_habitat(animal: &str) -> &str {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
-// 不要修改以下测试。
+// 不要修改以下测试！
 #[cfg(test)]
 mod tests {
     use super::*;

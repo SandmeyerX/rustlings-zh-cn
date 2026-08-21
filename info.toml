@@ -708,24 +708,27 @@ https://doc.rust-lang.org/stable/book/ch10-02-traits.html#using-trait-bounds-to-
 [[exercises]]
 name = "lifetimes1"
 dir = "16_lifetimes"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """
+让编译器来引导你。如果需要帮助，也可以参考《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch10-03-lifetime-syntax.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html）"""
 
 [[exercises]]
 name = "lifetimes2"
 dir = "16_lifetimes"
 test = false
-hint = """请注意，生命周期 `a` 实际等同于 `x` 和 `y` 中较小那一方的具体生命周期。
-为了在保留内部块的情况下获得符合预期的结果，有两种方法:
-1. 移动`string2`的声明语句，使其与`string1`具有相同的长度生命周期(那么`result`会是如何声明的呢?)
-2. 将`println!`语句移到内部块中。 """
+hint = """
+请注意，泛型生命周期 `'a` 会被推导为 `x` 和 `y` 中生命周期中较短的那一个具体生命周期。
+
+为了在保留内部块的同时获得符合预期的结果，至少有两种方案：
+1. 移动 `string2` 的声明位置，让它的存活时间与 `string1` 一样长（`result` 应如何声明？）
+2. 将 `println!` 移入内部代码块中。"""
 
 [[exercises]]
 name = "lifetimes3"
 dir = "16_lifetimes"
 test = false
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """让编译器来引导你 :)"""
 
 [[exercises]]
 name = "tests1"

@@ -1,7 +1,7 @@
 trait Licensed {
-    // TODO: 为 `licensing_info` 添加一个默认实现，
-    // 以便像下面这两个结构体这样的实现者能够共享该默认行为，而无需重复编写该函数。
-    // 默认许可信息应该为字符串 "Default license"。
+    // TODO: 为 `licensing_info` 添加默认实现，
+    // 让下方两个结构体这类实现者可以共享该默认行为，而无需重复编写该方法。
+    // 默认的许可信息应为字符串 "Default license"。
     fn licensing_info(&self) -> String;
 }
 
@@ -17,7 +17,7 @@ impl Licensed for SomeSoftware {} // 不要编辑此行代码。
 impl Licensed for OtherSoftware {} // 不要编辑此行代码。
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

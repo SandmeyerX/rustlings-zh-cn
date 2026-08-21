@@ -10,13 +10,13 @@ struct OtherSoftware;
 impl Licensed for SomeSoftware {}
 impl Licensed for OtherSoftware {}
 
-// TODO: 通过修改此函数的签名来修复编译器错误。
+// TODO: 仅通过修改此函数的签名来修复编译器错误。
 fn compare_license_types(software1: ???, software2: ???) -> bool {
     software1.licensing_info() == software2.licensing_info()
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

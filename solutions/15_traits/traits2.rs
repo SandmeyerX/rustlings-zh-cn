@@ -11,7 +11,7 @@ impl AppendBar for Vec<String> {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

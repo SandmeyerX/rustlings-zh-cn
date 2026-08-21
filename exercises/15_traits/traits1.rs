@@ -1,10 +1,10 @@
-// 特征 `AppendBar` 只有一个函数，该函数会将 "Bar" 追加到实现此特征的任何对象上。
+// 特征 `AppendBar` 只有一个方法，该方法会将 "Bar" 追加到任何实现了该特征的类型上。
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
 impl AppendBar for String {
-    // TODO: 为 `String` 类型实现 `AppendBar` 。
+    // TODO: 为 `String` 类型实现特征 `AppendBar`。
 }
 
 fn main() {

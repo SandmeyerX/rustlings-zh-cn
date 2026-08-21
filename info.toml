@@ -649,34 +649,52 @@ https://kaisery.github.io/trpl-zh-cn/ch10-01-syntax.html#方法定义中的泛�
 [[exercises]]
 name = "traits1"
 dir = "15_traits"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """
+关于特征的更多内容请参阅《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch10-02-traits.html）
+
+`+` 运算符可以将 `String` 与 `&str` 拼接。"""
 
 [[exercises]]
 name = "traits2"
 dir = "15_traits"
-hint = """请注意，特征获取了`self`的所有权，并将`Self`作为返回值。
-在特征中，`append_bar`的函数签名将`self`作为参数来接收，但在具体实现时，可以改为接收 `mut self`。这是因为无论如何值都是被拥有的，所以这样做是可行的。 """
+hint = """
+请注意，该特征会获取 `self` 的所有权，并返回 `Self`。
+
+虽然特征中 `append_bar` 的签名以 `self` 作为参数，
+但在具体实现中可以改用 `mut self`。这是可行的，因为值本身就已被拥有。"""
 
 [[exercises]]
 name = "traits3"
 dir = "15_traits"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """
+特征可以为方法提供默认实现。实现该特征的类型如果选择不自行实现方法，则可以直接使用默认版本。
+
+《Rust 程序设计语言》中的相关章节：
+https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html#使用默认实现
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch10-02-traits.html#default-implementations）"""
 
 [[exercises]]
 name = "traits4"
 dir = "15_traits"
-hint = """可以使用特征(trait)来代替具体类型的参数。请尝试将 `???` 替换为 `impl [这里应该填入什么?]`。
-The Rust Book的相应章节:
-https://doc.rust-lang.org/stable/book/ch10-02-traits.html#traits-as-parameters"""
+hint = """
+可以使用特征来代替具体类型的参数。请尝试将 `???` 替换为 `impl [此处应填入什么？]`。
+
+《Rust 程序设计语言》中的相关章节：
+https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html#使用-trait-作为参数
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch10-02-traits.html#traits-as-parameters）"""
 
 [[exercises]]
 name = "traits5"
 dir = "15_traits"
-hint = """要约束参数实现了多个特征，可以使用 `+` 语法。请尝试将 `???` 替换为 `impl [这里填入第一个特征名称] + [这里填入第二个特征名称]`。
-The Rust Book的相应章节:
-https://doc.rust-lang.org/stable/book/ch10-02-traits.html#specifying-multiple-trait-bounds-with-the--syntax"""
+hint = """
+要约束参数实现多个特征，可以使用 `+` 语法。
+请尝试将 `???` 替换为 `impl [此处应填入第一个特征] + [此处应填入第二个特征]`。
+
+《Rust 程序设计语言》中的相关章节：
+https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html#通过--语法指定多个-trait-约束
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch10-02-traits.html#specifying-multiple-trait-bounds-with-the--syntax）"""
 
 [[exercises]]
 name = "quiz3"

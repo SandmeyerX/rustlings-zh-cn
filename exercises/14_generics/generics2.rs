@@ -1,10 +1,10 @@
-// 这个强大的包装器(wrapper)，它具备存储正整数值的能力。
-// TODO: 使用泛型重写它，使得它能支持包装任何类型。
+// 这个强大的包装器（wrapper）具备存储正整数值的能力。
+// TODO: 使用泛型重写它，使其能支持包装任意类型。
 struct Wrapper {
     value: u32,
 }
 
-// TODO: 调整结构体的实现(impl)，使其对于被包装的值是泛型的。
+// TODO: 调整结构体的实现（impl），使其以被包装值的类型为泛型参数。
 impl Wrapper {
     fn new(value: u32) -> Self {
         Wrapper { value }
@@ -12,7 +12,7 @@ impl Wrapper {
 }
 
 fn main() {
-   // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

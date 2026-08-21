@@ -632,15 +632,19 @@ https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"""
 name = "generics1"
 dir = "14_generics"
 test = false
-hint = """Rust的动态数组利用泛型创建了能容纳任意类型、具有动态大小的数组。
-如果有一个名为 `numbers` 的向量，其类型为 `Vec<T>`，那么就只能推送 `T` 类型的元素。在推送之前，通过使用 `into` 可以让编译器将 `n1` 和 `n2` 转换为 `T` 类型。然而，编译器并不知道 `T` 的具体类型，所以需要对该类型进行注释。
-`u8` 和 `i8` 类型可以转换为 `i16`、`i32`、`i64` 等类型。让我们来选择动态数组的泛型类型吧。 """
+hint = """Rust 的动态数组利用泛型创建了能容纳任意类型、具有动态大小的数组。
+如果有一个名为 `numbers` 的动态数组，其类型为 `Vec<T>`，那么就只能推入（push） `T` 类型的元素。
+在推入之前，通过使用 `into()` 可以让编译器将 `n1` 和 `n2` 转换为 `T` 类型。
+然而，编译器并不知道 `T` 的具体类型，所以需要对该类型进行注解。
+
+`u8` 和 `i8` 类型可以转换为 `i16`、`i32`、`i64` 等类型。请选择动态数组的泛型类型吧。"""
 
 [[exercises]]
 name = "generics2"
 dir = "14_generics"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """相关章节请参阅《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch10-01-syntax.html#方法定义中的泛型
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch10-01-syntax.html#in-method-definitions）"""
 
 [[exercises]]
 name = "traits1"

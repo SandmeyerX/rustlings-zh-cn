@@ -699,11 +699,16 @@ https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html#通过--语法指定多
 [[exercises]]
 name = "quiz3"
 dir = "quizzes"
-hint = """要解决这个练习，特性（trait）知识，特别是特性边界语法知识是必不可少的。
-https://doc.rust-lang.org/stable/book/ch10-02-traits.html#using-trait-bounds-to-conditionally-implement-methods
-以下是在实现块中指定特性边界的方法:
+hint = """
+要找出本题的最优解法，你需要回顾特征相关知识，特别是“特征约束语法”：
+https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html#trait-约束语法
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch10-02-traits.html#trait-bound-syntax）
+
+以下是在 `impl` 块中指定特征约束的方法：
 `impl<T: Trait1 + Trait2 + …> for Foo<T> { … }`
-可能需要`use std::fmt::Display;`。"""
+
+你可能需要：
+`use std::fmt::Display;`"""
 
 [[exercises]]
 name = "lifetimes1"

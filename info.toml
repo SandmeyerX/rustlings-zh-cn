@@ -1,4 +1,4 @@
-# The format version is an indicator of the compatibility of third-party exercises with the
+﻿# The format version is an indicator of the compatibility of third-party exercises with the
 # Rustlings program.
 # The format version is not the same as the version of the Rustlings program.
 # In case Rustlings makes an unavoidable breaking change to the expected format of third-party
@@ -834,27 +834,57 @@ hint = """
 [[exercises]]
 name = "smart_pointers1"
 dir = "19_smart_pointers"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """
+编译器的提示应该能帮到你：
+由于处理递归类型时无法直接存储实际类型的值，我们需要存储一个指向其值的引用（指针）。
+
+因此，我们应该将 `List` 放入 `Box` 中。更多细节请参阅《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch15-01-box.html#使用-box-指向堆上的数据
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch15-01-box.html#enabling-recursive-types-with-boxes）
+
+创建一个空列表应该比较直接（提示：阅读测试）。
+
+对于非空列表，请记住我们想使用 `Cons` 列表构造器。
+虽然当前列表是整数类型（`i32`），但也可以尝试修改定义，使用其他类型！"""
 
 [[exercises]]
 name = "smart_pointers2"
 dir = "19_smart_pointers"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """
+这是一个使用 `Rc<T>` 类型的简单直接的练习。
+每个 `Planet` 都拥有 `Sun` 的所有权，并使用 `Rc::clone()` 来增加 `Sun` 的引用计数。
+
+在使用 `drop()` 将 `Planet` 逐个移出作用域后，引用计数会随之减少。
+
+最后，`Sun` 再次只剩下一次引用，即指向它自身。
+
+更多细节请参阅《Rust 程序设计语言》：
+https://kaisery.github.io/trpl-zh-cn/ch15-04-rc.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch15-04-rc.html）"""
 
 [[exercises]]
 name = "smart_pointers3"
 dir = "19_smart_pointers"
 test = false
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """
+让 `shared_numbers` 成为来自 `numbers` 动态数组的一个 `Arc`。
+然后，为了避免创建 `numbers` 的副本，你需要在循环内部（但仍在主线程中）创建 `child_numbers`。
+
+`child_numbers` 应该是 `numbers` 的 `Arc` 的一个克隆，而不是 `numbers` 的一个线程本地副本（hread-local copy）。
+
+如果你理解了底层概念，这就是一个简单的练习，
+但如果觉得有点吃力，可以考虑通读《Rust 程序设计语言》第 16 章：
+https://kaisery.github.io/trpl-zh-cn/ch16-00-concurrency.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch16-00-concurrency.html）"""
 
 [[exercises]]
 name = "smart_pointers4"
 dir = "19_smart_pointers"
-hint = """此练习还暂无提示哦
-(需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
+hint = """
+如果 `Cow` 已经拥有了数据的所有权，那么在调用 `to_mut()` 时就不需要克隆数据。
+
+查看 `Cow` 类型的文档：
+https://doc.rust-lang.org/std/borrow/enum.Cow.html"""
 
 [[exercises]]
 name = "threads1"

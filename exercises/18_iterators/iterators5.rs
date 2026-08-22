@@ -1,7 +1,7 @@
-// 让我们定义一个简单的模型来追踪踪Rustlings的练习进度。
-// 进度将使用哈希映射进行建模。练习的名称是键，进度是值。
-// 创建了两个计数函数来计算具有给定进度的练习数量。
-// 使用迭代器重新创建此计数功能。尽量不使用命令式循环(`for`/`while`)。
+// 让我们定义一个简单的模型来追踪 Rustlings 的练习进度。
+// 进度将使用哈希表进行建模：练习的名称作为键，进度作为值。
+// 我们创建了两个计数函数，用来统计具有给定进度的练习数量。
+// 请使用迭代器重新实现这套计数功能，尽量不使用命令式循环（`for`/`while`）。
 
 use std::collections::HashMap;
 
@@ -24,7 +24,7 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
 
 // TODO: 使用迭代器而不是 `for` 循环来实现 `count_for` 的功能。
 fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
-    // `map` 是一个哈希表，具有键 `String` 和 值 `Progress`。
+    // `map` 是一个哈希表，其键为 `String` 类型，值为 `Progress` 类型。
     // map = { "variables1": Complete, "from_str": None, … }
 }
 
@@ -48,7 +48,7 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

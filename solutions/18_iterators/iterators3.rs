@@ -1,10 +1,10 @@
 #[derive(Debug, PartialEq, Eq)]
 enum DivisionError {
-    // 例如: 42 / 0
+    // 例如：42 / 0
     DivideByZero,
-    // `i64` 的唯一特殊情况: `i64::MIN / -1`，因为结果是 `i64::MAX + 1`
+    // `i64` 的唯一特殊情况：`i64::MIN / -1`，因为计算结果等于 `i64::MAX + 1`
     IntegerOverflow,
-    // 例如: 5 / 2 = 2.5
+    // 例如：5 / 2 = 2.5
     NotDivisible,
 }
 
@@ -28,7 +28,7 @@ fn result_with_list() -> Result<Vec<i64>, DivisionError> {
     //                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     let numbers = [27, 297, 38502, 81];
     let division_results = numbers.into_iter().map(|n| divide(n, 27));
-    // 收集(collect)到预期的返回类型。返回除法结果中的第一个错误(如果存在的话)。
+    // 收集（collect）到预期的返回类型。返回除法结果中的第一个错误（如果存在的话）。
     division_results.collect()
 }
 
@@ -36,12 +36,12 @@ fn list_of_results() -> Vec<Result<i64, DivisionError>> {
     //               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     let numbers = [27, 297, 38502, 81];
     let division_results = numbers.into_iter().map(|n| divide(n, 27));
-    // 收集(collect)到预期的返回类型。
+    // 收集到预期的返回类型。
     division_results.collect()
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

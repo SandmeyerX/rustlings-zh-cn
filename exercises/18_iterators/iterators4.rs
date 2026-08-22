@@ -1,20 +1,20 @@
 fn factorial(num: u64) -> u64 {
     // TODO: 完成此函数，使其返回 `num` 的阶乘，
-    // 阶乘定义为 `1 * 2 * 3 * … * num`
-    //   - https://en.wikipedia.org/wiki/Factorial
-    //   - (大陆可访问)https://baike.baidu.com/item/阶乘/4437932
+    // `num` 的阶乘定义为 `1 * 2 * 3 * … * num`
+    //   - https://zh.wikipedia.org/wiki/階乘
+    //   - （大陆可访问百度百科）https://baike.baidu.com/item/阶乘/4437932
     //
-    // 请勿使用:
-    //   - 提前返回(显式使用 `return` 关键字)
-    // 尽量不使用:
-    //   - 命令式风格的循环(`for`/`while`)
+    // 请勿使用：
+    //   - 提前返回（显式使用 `return` 关键字）
+    // 尽量不使用：
+    //   - 命令式风格的循环（`for`/`while`）
     //   - 额外的变量
-    // 额外挑战，不使用:
+    // 进阶挑战，不使用：
     //   - 递归
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

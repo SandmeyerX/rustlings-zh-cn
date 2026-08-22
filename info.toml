@@ -761,45 +761,75 @@ https://kaisery.github.io/trpl-zh-cn/ch11-01-writing-tests.html#使用-should_pa
 [[exercises]]
 name = "iterators1"
 dir = "18_iterators"
-hint = """迭代器(iterator)会对集合内的所有元素执行一系列操作，要是元素都处理完了该怎么办呢?
-请查看以下文档:
+hint = """迭代器会遍历集合中的所有元素，但如果元素已经耗尽会发生什么？
+此时我们应当得到什么结果？如果没有思路，可以查阅：
 https://doc.rust-lang.org/std/iter/trait.Iterator.html"""
 
 [[exercises]]
 name = "iterators2"
 dir = "18_iterators"
-hint = """`capitalize_first`: 变量`first`是`char`类型。要返回正确的`String`，需要将这个字符转换为大写并添加到`chars`的其余字符中。`chars`的其余字符可以使用`as_str`方法作为字符串切片显示。
-`chars`的文档中有许多方便的方法:
-https://doc.rust-lang.org/std/primitive.char.html 
-使用`char::to_uppercase`。它返回一个可以转换为`String`的迭代器。
-`capitalize_words_vector`: 从切片创建一个迭代器。
-应用`capitalize_first`函数转换迭代器的值。不要忘记收集迭代器。
-`capitalize_words_string`: 可以用与之前相同的方法解决。
-`collect`非常强大且通用。Rust只需要知道你的目的，就会进行适当的处理。"""
+hint = """
+`capitalize_first`：
+
+变量 `first` 是 `char` 类型。要返回正确的 `String`，
+需要将这个字符转换为大写，并与 `chars` 中其余的字符拼接起来。
+
+可以使用 `as_str` 方法，把 `chars` 内部剩余字符视作字符串切片。
+
+`char` 的文档中包含许多实用的方法：
+https://doc.rust-lang.org/std/primitive.char.html
+
+使用 `char::to_uppercase`，该方法会返回一个迭代器，这个迭代器可以转换为 `String`。
+
+`capitalize_words_vector`：
+
+从切片创建迭代器，将 `capitalize_first` 函数作用于迭代得到的每个元素完成转换。
+不要忘记收集（`collect`）结果。
+
+`capitalize_words_string`：
+
+它和上一题的解法出奇相似。
+`collect` 功能强大且通用性很强，Rust 只需要知道你期望的目标类型即可。"""
 
 [[exercises]]
 name = "iterators3"
 dir = "18_iterators"
-hint = """`divide`函数在除数为0或者不能进行整除的情况下，需要返回正确的错误。
-`division_results`变量需要作为集合类型来收集计算结果。
-`result_with_list`函数需要返回单个`Result`，成功时返回整数向量，失败时返回`DivisionError`。
-`list_of_results`函数需要返回结果向量。
-关于`FromIterator`在`collect`中是如何被使用的，请参考以下文档。这个特性非常强大，能让这个练习更容易解决。
-https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect"""
+hint = """
+`divide` 函数在除数为 0 或者无法整除的情况下，需要返回正确的错误。
+
+`division_results` 变量需要被收集（collect）到某种集合类型中。
+
+`result_with_list` 函数需要返回单个 `Result`，
+其成功分支是一个由整数组成的动态数组，失败分支是 `DivisionError`。
+
+`list_of_results` 函数需要返回一个由结果组成的动态数组。
+
+关于 `FromIterator` 特征在 `collect()` 中是如何被使用的，请参考以下文档。
+https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
+这个特征非常强大！它能让本练习的解法简单得多。"""
 
 [[exercises]]
 name = "iterators4"
 dir = "18_iterators"
-hint = """在命令式编程语言中，可能会编写更新变量的`for`循环。或者，可能会编写使用递归和`match`的代码。
-在Rust中，可以采用另一种函数式方法，通过使用范围和迭代器来优雅地解决阶乘问题。查看一下`fold`方法和`rfold`吧。"""
+hint = """
+在命令式语言中，你可能会写一个 `for` 循环来更新可变变量；
+也可能会使用递归与 `match` 匹配分支来编写代码。
+而在 Rust 中，你可以采用另一种函数式方法，借助区间与迭代器优雅地计算阶乘。
+
+了解一下 `fold` 和 `rfold` 方法吧！"""
 
 [[exercises]]
 name = "iterators5"
 dir = "18_iterators"
-hint = """`std::iter::Iterator` trait的文档中记载了许多在此处有用的方法。
-`count_collection_iterator`函数中的`collection`变量是`HashMap`的切片，为了使用迭代器的方法，需要将其转换为迭代器。
-`fold`方法在`count_collection_iterator`函数中很有用。
-如果想要进一步挑战，参考`Iterator`的文档，寻找一个比使用`fold`更能使代码简洁的其他方法吧！"""
+hint = """
+`std::iter::Iterator` 特征的文档中提供了许多对本题有用的方法。
+
+`count_collection_iterator` 中的 `collection` 变量是一个由 `HashMap` 组成的切片，
+需要将其转换为迭代器，才能使用迭代器相关的方法。
+
+`fold` 方法在 `count_collection_iterator` 函数中会很有用。
+
+如果想进一步挑战，可以查阅 `Iterator` 的文档，寻找另一个方法，写出比使用 `fold` 更加精简的代码。"""
 
 [[exercises]]
 name = "smart_pointers1"

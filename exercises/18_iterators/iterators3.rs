@@ -1,10 +1,10 @@
 #[derive(Debug, PartialEq, Eq)]
 enum DivisionError {
-    // 例如: 42 / 0
+    // 例如：42 / 0
     DivideByZero,
-    // `i64` 的唯一特殊情况: `i64::MIN / -1`，因为结果是 `i64::MAX + 1`
+    // `i64` 的唯一特殊情况：`i64::MIN / -1`，因为计算结果等于 `i64::MAX + 1`
     IntegerOverflow,
-    // 例如: 5 / 2 = 2.5
+    // 例如：5 / 2 = 2.5
     NotDivisible,
 }
 
@@ -15,21 +15,21 @@ fn divide(a: i64, b: i64) -> Result<i64, DivisionError> {
 }
 
 // TODO: 添加正确的返回类型并完成函数体。
-// 期望的输出: `Ok([1, 11, 1426, 3])`
+// 期望的输出：`Ok([1, 11, 1426, 3])`
 fn result_with_list() {
     let numbers = [27, 297, 38502, 81];
     let division_results = numbers.into_iter().map(|n| divide(n, 27));
 }
 
 // TODO: 添加正确的返回类型并完成函数体。
-// 期望的输出: `[Ok(1), Ok(11), Ok(1426), Ok(3)]`
+// 期望的输出：`[Ok(1), Ok(11), Ok(1426), Ok(3)]`
 fn list_of_results() {
     let numbers = [27, 297, 38502, 81];
     let division_results = numbers.into_iter().map(|n| divide(n, 27));
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

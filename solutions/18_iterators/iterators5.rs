@@ -1,7 +1,7 @@
-// 让我们定义一个简单的模型来追踪踪Rustlings的练习进度。
-// 进度将使用哈希映射进行建模。练习的名称是键，进度是值。
-// 创建了两个计数函数来计算具有给定进度的练习数量。
-// 使用迭代器重新创建此计数功能。尽量不使用命令式循环(`for`/`while`)。
+// 让我们定义一个简单的模型来追踪 Rustlings 的练习进度。
+// 进度将使用哈希表进行建模：练习的名称作为键，进度作为值。
+// 我们创建了两个计数函数，用来统计具有给定进度的练习数量。
+// 请使用迭代器重新实现这套计数功能，尽量不使用命令式循环（`for`/`while`）。
 
 use std::collections::HashMap;
 
@@ -23,7 +23,7 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
 }
 
 fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
-    // `map` is a hash map with `String` keys and `Progress` values.
+    // `map` 是一个哈希表，其键为 `String` 类型，值为 `Progress` 类型。
     // map = { "variables1": Complete, "from_str": None, … }
     map.values().filter(|val| **val == value).count()
 }
@@ -47,23 +47,23 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
 }
 
 // 等同于 `count_collection_iterator` 和 `count_iterator`，
-// 其迭代方式就好像集合是单个容器，而非容器的容器(更准确地说，是单个迭代器，而非迭代器的迭代器)。
+// 其迭代方式就好像集合是单个容器，而非容器的容器（更准确地说，是单个迭代器，而非迭代器的迭代器）。
 fn count_collection_iterator_flat(
     collection: &[HashMap<String, Progress>],
     value: Progress,
 ) -> usize {
-    // `collection` is a slice of hash maps.
+    // `collection` 是哈希表的一个切片。
     // collection = [{ "variables1": Complete, "from_str": None, … },
     //               { "variables2": Complete, … }, … ]
     collection
         .iter()
-        .flat_map(HashMap::values) // 或者就 `.flatten()` 当想用默认迭代器时 (`HashMap::iter`)
+        .flat_map(HashMap::values) // 或者直接用 `.flatten()`（想使用默认迭代器时，即 `HashMap::iter`）
         .filter(|val| **val == value)
         .count()
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

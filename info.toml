@@ -890,25 +890,50 @@ https://doc.rust-lang.org/std/borrow/enum.Cow.html"""
 name = "threads1"
 dir = "20_threads"
 test = false
-hint = """`JoinHandle`是从生成的线程返回的结构体。
-https://doc.rust-lang.org/std/thread/fn.spawn.html 
-多线程应用程序的问题在于，生成的线程在结束之前，主线程有可能先结束。使用`JoinHandle`等待每个线程结束，并收集结果。"""
+hint = """`JoinHandle` 是由已创建的线程返回的结构体：
+https://doc.rust-lang.org/std/thread/fn.spawn.html
+
+多线程应用的一个挑战是，主线程可能会在创建的线程结束之前先行结束。
+https://kaisery.github.io/trpl-zh-cn/ch16-01-threads.html#等待所有线程结束
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch16-01-threads.html#waiting-for-all-threads-to-finish-using-join-handles）
+
+使用 `JoinHandle` 等待每个线程结束，并收集它们的结果。
+
+https://doc.rust-lang.org/std/thread/struct.JoinHandle.html"""
 
 [[exercises]]
 name = "threads2"
 dir = "20_threads"
 test = false
-hint = """`Arc`是原子引用计数指针，它允许对不可变数据进行安全的共享访问。
-然而，在本次练习中，我们想要更改`jobs_done`的值，因此需要使用另一种类型，该类型一次只允许一个线程更改数据。
-让我们查看 The Rust Book的以下部分:
-https://doc.rust-lang.org/stable/book/ch16-03-shared-state.html#using-mutexes-to-allow-access-to-data-from-one-thread-at-a-time"""
+hint = """`Arc` 是原子引用计数指针，它允许对不可变数据进行安全的共享访问。
+但我们想要 **修改** `jobs_done` 的数量，因此还需要另一种类型，该类型一次只允许一个线程可变地访问数据。
+看看书中的这一节：
+https://kaisery.github.io/trpl-zh-cn/ch16-03-shared-state.html#原子引用计数-arct
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct）
+
+想获得更多提示，请继续阅读 :)
+
+现在，你在 `main` 开头是否已经有了 `Arc<Mutex<JobStatus>>`？例如：
+```
+let status = Arc::new(Mutex::new(JobStatus { jobs_done: 0 }));
+```
+
+与《Rust 程序设计语言》中以下示例中的代码类似：
+https://kaisery.github.io/trpl-zh-cn/ch16-03-shared-state.html#给-mutext-共享访问
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch16-03-shared-state.html#sharing-a-mutext-between-multiple-threads）"""
 
 [[exercises]]
 name = "threads3"
 dir = "20_threads"
-hint = """作为处理线程间并发执行的另一种方法，存在使用 mpc(多生产者、单消费者通道)通道进行通信的方式。只要有发送端和接收端，就可以在某个线程中发送值，并在另一个线程中接收该值。通过使用`clone`来创建原始接收端的副本，能够创建多个生产者。
-The Rust Book的相关章节:
-https://doc.rust-lang.org/stable/book/ch16-02-message-passing.html """
+hint = """处理线程间并发的另一种方式是使用 `mpsc`（多生产者，单消费者，multiple producer, single consumer）信道进行通信。
+
+只要有一个发送端和一个接收端，就可以在某个线程中发送值，并在另一个线程中接收该值。
+
+通过使用 `clone()` 克隆原始发送端来创建其副本，就可以实现多个生产者。
+
+《Rust 程序设计语言》中的相关章节：
+https://kaisery.github.io/trpl-zh-cn/ch16-02-message-passing.html
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch16-02-message-passing.html）"""
 
 [[exercises]]
 name = "macros1"

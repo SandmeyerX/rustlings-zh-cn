@@ -738,23 +738,25 @@ hint = """让编译器来引导你 :)"""
 [[exercises]]
 name = "tests1"
 dir = "17_tests"
-hint = """`assert!` 是一个需要参数的宏。它会根据参数的值来决定是不做任何操作(测试通过)还是触发恐慌(测试失败)。
+hint = """`assert!` 是一个需要参数的宏。它会根据参数的值来决定是不做任何操作（测试通过）还是触发恐慌（测试失败）。
 所以，我们可以给 `assert!` 传入各种各样的值，看看哪些会成功、哪些会失败哦。
-如果想要测试 `false` 的情况，可以像 `assert!(!...)` 这样通过添加 `!` 来进行测试呢。 """
+如果想要测试 `false` 的情况，可以像 `assert!(!...)` 这样通过添加 `!` 来进行测试呢。"""
 
 [[exercises]]
 name = "tests2"
 dir = "17_tests"
 hint = """`assert_eq!` 是一个接收两个参数并进行比较的宏。
-请试着传入相同的值来运行看看。要是传入不同的值会怎么样呢？把参数的顺序调换一下又会怎样呢?"""
+请试着传入相同的值来运行看看。要是传入不同的值会怎么样呢？把参数的顺序调换一下又会怎样呢？"""
 
 [[exercises]]
 name = "tests3"
 dir = "17_tests"
 hint = """在测试中，我们期望 `Rectangle::new` 函数在接收到负值时会引发恐慌。
 为此，需要向测试函数添加一个特殊的属性。
-请参考Rust书籍中的以下内容:
-https://doc.rust-lang.org/stable/book/ch11-01-writing-tests.html#checking-for-panics-with-should_panic"""
+
+请参考《Rust 程序设计语言》中的以下内容：
+https://kaisery.github.io/trpl-zh-cn/ch11-01-writing-tests.html#使用-should_panic-检查-panic
+（社区中文翻译，原文：https://doc.rust-lang.org/book/ch11-01-writing-tests.html#checking-for-panics-with-should_panic）"""
 
 [[exercises]]
 name = "iterators1"

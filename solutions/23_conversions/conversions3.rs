@@ -1,5 +1,5 @@
 // 在本练习中，我们将实现 `FromStr`，将存储为字符串的数据转换为结构化类型。
-// 与 `From` trait 不同，`FromStr` 表达的转换可能会失败，因此它返回一个 `Result`。
+// 与 `From` 特征不同，`FromStr` 所表示的转换可能会失败，因此它返回的是 `Result`。
 // 此外，在实现 `FromStr` 之后，你可以使用字符串上的 `parse` 方法来生成实现了该特征类型的对象。
 // 你可以在文档中阅读更多关于它的内容：
 // https://doc.rust-lang.org/std/str/trait.FromStr.html

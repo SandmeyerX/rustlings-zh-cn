@@ -22,7 +22,7 @@ impl ReportCard {
     fn print(&self) -> String {
         format!(
             "{} ({}) - 取得的成绩为 {}",
-            &self.student_name, &self.student_age, &self.grade,
+            self.student_name, self.student_age, self.grade,
         )
     }
 }

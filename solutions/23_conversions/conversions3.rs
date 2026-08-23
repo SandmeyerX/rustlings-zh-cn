@@ -1,7 +1,7 @@
 // 这与之前的 `from_into` 练习类似。
-// 但这次，我们将实现(impl) `FromStr` 并返回错误，而不是回退到默认值。
-// 此外，在实现 `FromStr` 之后，你可以使用字符串上的 `parse` 方法来生成实现该特性的类型的对象。
-// 你可以在文档中阅读更多关于它的内容:
+// 但这次，我们将实现 `FromStr` 并返回错误，而不是回退到默认值。
+// 此外，在实现 `FromStr` 之后，你可以使用字符串上的 `parse` 方法来生成实现了该特征类型的对象。
+// 你可以在文档中阅读更多关于它的内容：
 // https://doc.rust-lang.org/std/str/trait.FromStr.html
 
 use std::num::ParseIntError;
@@ -13,7 +13,7 @@ struct Person {
     age: u8,
 }
 
-// 我们将把这种错误类型用于 `FromStr` 实现(impl)中。
+// 我们将会把该错误类型用于 `FromStr` 实现（`impl`）中。
 #[derive(Debug, PartialEq)]
 enum ParsePersonError {
     // 字段数量不正确

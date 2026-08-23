@@ -994,13 +994,13 @@ hint = """此练习还暂无提示哦
 [[exercises]]
 name = "conversions1"
 dir = "23_conversions"
-hint = """请使用`as`运算符将`average`函数最后一行的操作数之一更改为期望的返回值类型。"""
+hint = """在 `average` 函数的最后一行，使用 `as` 运算符将其中一个操作数转换为预期的返回类型。"""
 
 [[exercises]]
 name = "conversions2"
 dir = "23_conversions"
-hint = """从华氏度转换为摄氏度的公式是: C = (F - 32) / 1.8
-这个公式可以从第一个公式推导出来:
+hint = """从华氏度转换为摄氏度的公式是：C = (F - 32) / 1.8
+这个公式可以从第一个公式推导出来：
 
              F = C * 1.8 + 32   // 现在两边同时减去 32
         F - 32 = C * 1.8        // 然后两边同时除以 1.8
@@ -1010,20 +1010,24 @@ hint = """从华氏度转换为摄氏度的公式是: C = (F - 32) / 1.8
 [[exercises]]
 name = "conversions3"
 dir = "23_conversions"
-hint = """在`FromStr`的实现中，需要指定`Person`对象并返回`Ok`，如果字符串不符合要求则指定相应错误并返回`Err`。这与 `conversions2` 的练习大致相同，不过这里是返回错误而不是返回默认值。
-另一个提示:
-可以使用 `Result` 的 `map_err` 方法以及在闭包中使用它来包装从 `parse::<u8>` 产生的错误。
-还有一个提示:
-如果想要利用 `?` 运算符来传播错误，请参考以下内容:
-https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html """
+hint = """`FromStr` 的实现应该返回一个包含 `Person` 对象的 `Ok`，或者在字符串无效时返回一个包含错误信息的 `Err`。
+
+这几乎和之前的 `from_into` 练习相同，只不过现在是返回错误，而不是回退到一个默认值。
+
+另一个提示：你可以使用 `Result` 的 `map_err` 方法，并传入一个函数或闭包来封装 `parse::<u8>` 产生的错误。
+
+再一个提示：如果你想在解决方案中使用 `?` 运算符来传播错误，请参考以下内容：
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html"""
 
 [[exercises]]
 name = "conversions4"
 dir = "23_conversions"
-hint = """标准库中是否存在既能进行`TryFrom`实现所需的整数转换，又能进行输入范围检查的东西呢?
-挑战: 能否针对很多整数类型通用地实现 `TryFrom` 呢? """
+hint = """标准库中是否有 `TryFrom` 的某个实现，既能完成所需的整数转换，又能检查输入的范围？
+
+挑战题：你能让 `TryFrom` 的实现支持多种整数类型（泛型化）吗？
+"""
 
 [[exercises]]
 name = "conversions5"
 dir = "23_conversions"
-hint = """让我们将`AsRef<str>`或`AsMut<u32>`作为绑定到函数的特性来添加吧。"""
+hint = """让我们将 `AsRef<str>` 或 `AsMut<u32>` 作为特征约束（trait bound）添加到函数上吧。"""

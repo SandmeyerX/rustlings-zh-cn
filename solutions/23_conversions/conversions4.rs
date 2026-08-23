@@ -1,6 +1,6 @@
 // `TryFrom` 是一种简单且安全的类型转换，在某些情况下可能会以一种可控的方式失败。
 // 基本上，它与 `From` 类似。主要区别在于它应该返回一个 `Result` 类型，而非目标类型本身。
-// 你可以在文档中阅读更多关于它的内容:
+// 你可以在文档中阅读更多关于它的内容：
 // https://doc.rust-lang.org/std/convert/trait.TryFrom.html
 
 #![allow(clippy::useless_vec)]
@@ -13,7 +13,7 @@ struct Color {
     blue: u8,
 }
 
-// 我们将把这种错误类型用于 `TryFrom` 转换中。
+// 我们将会把该错误类型用于 `TryFrom` 转换中。
 #[derive(Debug, PartialEq)]
 enum IntoColorError {
     // 切片长度不正确
@@ -42,7 +42,7 @@ impl TryFrom<[i16; 3]> for Color {
     type Error = IntoColorError;
 
     fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
-        // 复用(reuse)对元组的实现。
+        // 复用对元组的实现。
         Self::try_from((arr[0], arr[1], arr[2]))
     }
 }
@@ -52,7 +52,7 @@ impl TryFrom<&[i16]> for Color {
 
     fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {
         if let &[red, green, blue] = slice {
-            // 复用(reuse)对元组的实现。
+            // 复用对元组的实现。
             Self::try_from((red, green, blue))
         } else {
             Err(IntoColorError::BadLen)
@@ -65,7 +65,7 @@ fn main() {
     let c1 = Color::try_from((183, 65, 14));
     println!("{c1:?}");
 
-    // 由于已经为 `Color` 实现了 `TryFrom`，我们就可以使用 `TryInto` 了。
+    // 由于已经为 `Color` 实现了 `TryFrom`，我们就可以使用 `TryInto`。
     let c2: Result<Color, _> = [183, 65, 14].try_into();
     println!("{c2:?}");
 

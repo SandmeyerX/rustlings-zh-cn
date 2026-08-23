@@ -1,5 +1,5 @@
 // `From` 特征用于值到值的转换。如果实现了 `From`，那么会自动提供 `Into` 的实现。
-// 你可以在文档中阅读更多关于它的内容:
+// 你可以在文档中阅读更多关于它的内容：
 // https://doc.rust-lang.org/std/convert/trait.From.html
 //
 // 使用独立的类型来表示不同的度量单位是一种常见的做法。
@@ -22,7 +22,7 @@ impl From<Fahrenheit> for Celsius {
 }
 
 fn main() {
-    // (可选)你可以选择性地在此处进行试验。
+    // 你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

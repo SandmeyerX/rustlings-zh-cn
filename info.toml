@@ -939,13 +939,13 @@ https://kaisery.github.io/trpl-zh-cn/ch16-02-message-passing.html
 name = "macros1"
 dir = "21_macros"
 test = false
-hint = """在Rust中调用宏时，与普通的函数调用相比，需要添加特殊的字符。"""
+hint = """在 Rust 中调用宏时，与普通的函数调用相比，需要添加特殊的字符。"""
 
 [[exercises]]
 name = "macros2"
 dir = "21_macros"
 test = false
-hint = """Rust中的宏并不完全遵循与编写普通函数相同的规则。
+hint = """Rust 中的宏并不完全遵循与编写普通函数相同的规则。
 “宏的定义位置”以及“宏的使用位置的先后顺序”很重要。"""
 
 [[exercises]]
@@ -959,8 +959,9 @@ name = "macros4"
 dir = "21_macros"
 test = false
 hint = """只需添加一个字符就能使其成功编译。宏的编写方式是通过在每个宏分支之间添加某些内容，从而能够将它们分隔开。至此，宏的练习就结束了，但这仅仅只是介绍了一小部分内容。
-若想获取更详细的宏知识，请阅读 The Little Book of Rust Macros:
-https://veykril.github.io/tlborm/"""
+若想获取更详细的宏知识，请阅读《Rust 宏小册》:
+https://zjp-cn.github.io/tlborm/
+（社区中文翻译，原文：https://veykril.github.io/tlborm/）"""
 
 [[exercises]]
 name = "clippy1"

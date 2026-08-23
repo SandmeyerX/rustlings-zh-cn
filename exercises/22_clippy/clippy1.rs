@@ -1,10 +1,10 @@
-// Clippy工具是一系列用于分析代码的lint(检查工具)，这样你就可以发现常见错误并改进你的Rust代码。
+// Clippy 工具是一系列 lint 检查的集合，用于分析代码，从而帮助你发现常见错误并改进 Rust 代码。
 //
-// 对于这些练习，当存在Clippy警告(Clippy warnings)时，代码将无法编译。
-// 从输出中查看Clippy的建议来解决练习问题。
+// 对于这些练习，当存在 Clippy 警告时，代码将无法编译。
+// 请查看输出中 Clippy 给出的建议来解决练习。
 
 fn main() {
-    // TODO: 修复此行中的Clippy lint(检查提示)。
+    // TODO: 修复此行中的 Clippy lint（检查提示）。
     let pi = 3.14;
     let radius: f32 = 5.0;
 

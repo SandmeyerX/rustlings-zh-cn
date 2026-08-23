@@ -967,15 +967,21 @@ https://zjp-cn.github.io/tlborm/
 name = "clippy1"
 dir = "22_clippy"
 test = false
-hint = """Rust的标准库中存储了长精度和无限精度的数学常数:
-https://doc.rust-lang.org/stable/std/f32/consts/index.html 
-在某些情况下，可能想要使用某种数学常数的自定义近似值，但Clippy会将不准确的数学常数视为潜在错误的原因。请参考编译输出中的Clippy警告，从 `std::f32::consts` 中使用合适的替换常数。"""
+hint = """Rust 在标准库中为一些长精度或无限精度的数学常量存储了最高精度的版本：
+https://doc.rust-lang.org/stable/std/f32/consts/index.html
+
+我们可能会倾向于为某些数学常量使用自己的近似值，但 Clippy 会将这些不精确的数学常量识别为潜在的错误来源。
+
+请参考编译输出中 Clippy 警告的建议，从 `std::f32::consts` 中使用合适的替换常量。"""
 
 [[exercises]]
 name = "clippy2"
 dir = "22_clippy"
 test = false
-hint = """针对`Option`类型的`for`循环可以用`if-let`语句来表示。"""
+hint = """针对 `Option` 类型的 `for` 循环可以用 `if let` 语句来更清晰地表达。
+
+本题不要求掌握此内容，但如果你想了解何时迭代 `Option` 会有用，请参阅文档的以下部分：
+https://doc.rust-lang.org/std/option/#iterating-over-option"""
 skip_check_unsolved = true
 
 [[exercises]]

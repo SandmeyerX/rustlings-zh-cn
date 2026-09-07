@@ -17,7 +17,7 @@ enum ParsePosNonzeroError {
     ParseInt(ParseIntError),
 }
 
-// 作为一种替代解决方案，实现 `From` 特征允许使用 `?` 操作符
+// 作为一种替代解决方案，实现 `From` 特征允许使用 `?` 运算符
 // 将 `ParseIntError` 自动转换为 `ParsePosNonzeroError`，而无需调用 `map_err`。
 //
 // ```

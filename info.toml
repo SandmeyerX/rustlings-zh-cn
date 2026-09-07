@@ -1029,3 +1029,19 @@ hint = """标准库中是否有 `TryFrom` 的某个实现，既能完成所需�
 name = "conversions5"
 dir = "23_conversions"
 hint = """让我们将 `AsRef<str>` 或 `AsMut<u32>` 作为特征约束（trait bound）添加到函数上吧。"""
+
+[[exercises]]
+name = "async1"
+dir = "24_async"
+test = false
+input_files = [
+  "scores_class_a.txt",
+  "scores_class_b.txt",
+  "scores_class_c.txt",
+]
+hint = """
+像 tokio 这类的异步运行时，只能生成由异步函数定义的任务，无法生成普通函数的任务。
+请在 "tim"、"carl" 和 "nick" 这三个函数的 "fn" 关键字前添加 "async" 关键字。
+
+异步任务可以通过 "await" 来等待另一个任务执行完毕。
+请在 "block_on" 调用中的三个 "task_name" 变量后添加 ".await"。"""

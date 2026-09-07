@@ -188,6 +188,8 @@ bin = [
   { name = "conversions4_sol", path = "solutions/23_conversions/conversions4.rs" },
   { name = "conversions5", path = "exercises/23_conversions/conversions5.rs" },
   { name = "conversions5_sol", path = "solutions/23_conversions/conversions5.rs" },
+  { name = "async1", path = "exercises/24_async/async1.rs" },
+  { name = "async1_sol", path = "solutions/24_async/async1.rs" },
 ]
 
 [package]
@@ -197,6 +199,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
+tokio = { version = "1", features = ["fs", "macros", "rt-multi-thread"] }
 
 [profile.release]
 panic = "abort"

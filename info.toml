@@ -967,6 +967,7 @@ https://zjp-cn.github.io/tlborm/
 name = "clippy1"
 dir = "22_clippy"
 test = false
+strict_clippy = true
 hint = """Rust 在标准库中为一些长精度或无限精度的数学常量存储了最高精度的版本：
 https://doc.rust-lang.org/stable/std/f32/consts/index.html
 
@@ -978,16 +979,17 @@ https://doc.rust-lang.org/stable/std/f32/consts/index.html
 name = "clippy2"
 dir = "22_clippy"
 test = false
+strict_clippy = true
 hint = """针对 `Option` 类型的 `for` 循环可以用 `if let` 语句来更清晰地表达。
 
 本题不要求掌握此内容，但如果你想了解何时迭代 `Option` 会有用，请参阅文档的以下部分：
 https://doc.rust-lang.org/std/option/#iterating-over-option"""
-skip_check_unsolved = true
 
 [[exercises]]
 name = "clippy3"
 dir = "22_clippy"
 test = false
+strict_clippy = true
 hint = """此练习还暂无提示哦
 (需要点提示? 提出问题到 https://github.com/SandmeyerX/rustlings-zh-cn/issues)"""
 

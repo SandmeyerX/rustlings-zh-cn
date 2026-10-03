@@ -1,7 +1,7 @@
 mod delicious_snacks {
     // 添加了 `pub`，并且在 `as` 关键字后使用了符合预期的别名。
-    pub use self::fruits::PEAR as fruit;
-    pub use self::veggies::CUCUMBER as veggie;
+    pub use self::fruits::PEAR as FRUIT;
+    pub use self::veggies::CUCUMBER as VEGGIE;
 
     mod fruits {
         pub const PEAR: &str = "Pear";
@@ -17,7 +17,7 @@ mod delicious_snacks {
 fn main() {
     println!(
         "favorite snacks: {} and {}",
-        delicious_snacks::fruit,
-        delicious_snacks::veggie,
+        delicious_snacks::FRUIT,
+        delicious_snacks::VEGGIE,
     );
 }

@@ -6,6 +6,9 @@
 >新版 Rustlings 的 README 文件移除了以下内容，取而代之的是网站链接：[Rustlings](https://rustlings.rust-lang.org) 🦀
 >这里为了直观地展示安装步骤，保留了原版内容的翻译
 
+**🔥 好消息：现已上线 [在线网站](https://rustlings.freedev.app/)，你可以在浏览器查看 Rustlings 所有练习和解答了！**
+
+
 欢迎使用 Rustlings 练习题简体中文版 😃
 这个项目包含一些小练习，来帮助你习惯阅读和编写惯用的 Rust 代码。
 也包括如何阅读编译器提示并据此修改代码！

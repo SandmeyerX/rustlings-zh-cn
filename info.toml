@@ -1042,8 +1042,8 @@ input_files = [
   "scores_class_c.txt",
 ]
 hint = """
-像 tokio 这类的异步运行时，只能生成由异步函数定义的任务，无法生成普通函数的任务。
-请在 "tim"、"carl" 和 "nick" 这三个函数的 "fn" 关键字前添加 "async" 关键字。
+像tokio这样的异步运行时，只能生成定义为 `async` 函数的任务，而不能生成普通函数。
+在函数 `calculate_mean_score` 的 `fn` 关键字前添加 `async` 关键字。
 
-异步任务可以通过 "await" 来等待另一个任务执行完毕。
-请在 "block_on" 调用中的三个 "task_name" 变量后添加 ".await"。"""
+一个异步任务可以通过 `.await` 来等待另一个任务完成。
+在 `assert_eq` 语句中的三个 `mean_score_*` 变量后添加 `.await`。"""

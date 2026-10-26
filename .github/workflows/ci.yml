@@ -45,17 +45,15 @@ jobs:
           git -C upstream fetch --depth 1 "https://github.com/rust-lang/rustlings.git" "$UPSTREAM_COMMIT"
           git -C upstream checkout --detach FETCH_HEAD
 
-      - name: Restore cargo caches
-        uses: actions/cache@v4
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
         with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            target
-            upstream/target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}-${{ hashFiles('upstream/Cargo.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-cargo-
+          # 同时缓存根项目和 upstream 子项目的构建产物
+          workspaces: |
+            . -> target
+            upstream -> target
+          # 即使 dev check 超时失败也保存缓存，避免下次仍然完全冷启动
+          cache-on-failure: true
 
       - name: Build rustlings binary
         working-directory: upstream

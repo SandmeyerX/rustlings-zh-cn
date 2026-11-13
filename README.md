@@ -1,6 +1,6 @@
 # Rustlings-zh-cn 🦀❤️
 
-![Tracking Status](https://img.shields.io/badge/track-当前已为最新版本-green)
+![Tracking Status](https://img.shields.io/badge/track-版本落后待更新-red)
 
 >[!NOTE]
 >新版 Rustlings 的 README 文件移除了以下内容，取而代之的是网站链接：[Rustlings](https://rustlings.rust-lang.org) 🦀

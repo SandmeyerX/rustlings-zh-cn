@@ -100,3 +100,19 @@ jobs:
             git commit -m "track: 已同步至 ${{ steps.compare.outputs.head }}" || echo "no changes"
           fi
           git push
+      
+      - name: Send email notification
+        if: steps.compare.outputs.status == 'NEED_UPDATE'
+        continue-on-error: true
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_SMTP }}
+          server_port: ${{ secrets.MAIL_SMTP_PORT }}
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: ${{ secrets.MAIL_USERNAME }}
+          to: ${{ secrets.MAIL_TO }}
+          subject: "🔔 Rustlings 翻译待同步：${{ steps.compare.outputs.count }} 个上游提交"
+          body: file://tracking.md
+          convert_markdown: true
